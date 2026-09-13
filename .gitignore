@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+venv/
+env/
+.venv/
+
+# App Specific
+Augment Cards/
+settings.json
+aram_mayhem_augments_raw.json
+
+# OS Files
+.DS_Store
+Thumbs.db
