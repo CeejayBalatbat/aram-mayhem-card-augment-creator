@@ -13,14 +13,14 @@ import html
 # self-intersecting/corrupted, while simple straight-stroke glyphs look
 # fine. Forcing the FreeType backend instead avoids the bug entirely.
 # This must be set before QApplication is constructed, and only applies
-# on Windows (the platform string is meaningless elsewhere).
+# on Windows.
 if sys.platform == "win32":
     os.environ.setdefault(
         "QT_QPA_PLATFORM",
         "windows:fontengine=freetype"
     )
 
-from PySide6.QtCore import Qt, QRectF
+from PySide6.QtCore import Qt, QRectF, QUrl
 from PySide6.QtGui import (
     QColor,
     QFont,
@@ -30,6 +30,7 @@ from PySide6.QtGui import (
     QPixmap,
     QTextCharFormat,
     QTextDocument,
+    QTextImageFormat,
     QFontMetrics,
     QLinearGradient,
 )
@@ -77,6 +78,11 @@ ICONS_DIR = os.path.join(
     "icons"
 )
 
+STAT_ICONS_DIR = os.path.join(
+    ASSETS_DIR,
+    "stat_icons"
+)
+
 BACKGROUNDS_DIR = os.path.join(
     ASSETS_DIR,
     "backgrounds"
@@ -89,21 +95,37 @@ FONTS_DIR = os.path.join(
 
 
 # ============================================================
+# STAT ICONS
+# ============================================================
+
+STAT_ICONS = {
+    "Attack Damage": "attack_damage.png",
+    "Ability Power": "ability_power.png",
+    "Attack Speed": "attack_speed.png",
+    "Ability Haste": "ability_haste.png",
+    "Armor": "armor.png",
+    "Magic Resist": "magic_resist.png",
+    "Health": "health.png",
+    "Movement Speed": "movement_speed.png",
+    "Tenacity": "tenacity.png",
+    "Adaptive Force": "adaptive_force.png",
+    "Critical Strike": "critical_strike.png",
+}
+
+
+# ============================================================
 # CARD SIZE
 # ============================================================
 
 CARD_WIDTH = 380
 CARD_HEIGHT = 580
 
+
 # ============================================================
 # DEBUG
 # ============================================================
 
 DEBUG_BOUNDS = False
-
-# ============================================================
-# CARD VISUAL TUNING
-# ============================================================
 
 
 # ============================================================
@@ -159,6 +181,11 @@ TAG_BOX_COLOR_EDGE = "#89877a"
 TAG_BOX_COLOR_CENTER = "#9b9d94"
 TAG_TEXT_COLOR = "#1A1A1A"
 
+# Quest Tag Styling
+TAG_QUEST_BOX_COLOR_EDGE = "#f0c200"
+TAG_QUEST_BOX_COLOR_CENTER = "#e9c117"
+TAG_QUEST_TEXT_COLOR = "#111111"
+
 TAG_BORDER_WIDTH = 0
 TAG_BORDER_COLOR = "#000000"
 
@@ -183,6 +210,11 @@ DESCRIPTION_LETTER_SPACING = .75
 
 DESCRIPTION_ALIGNMENT = Qt.AlignCenter
 
+STAT_ICON_SIZE = 12
+
+STAT_ICON_CUSTOM_SIZES = {
+    "critical_strike.png": 16,   
+}
 
 # ============================================================
 # COLORS
@@ -416,7 +448,7 @@ class AugmentCreator(QMainWindow):
 
 
     # ========================================================
-    # SETTINGS (SAVE CUSTOM COLORS)
+    # SETTINGS
     # ========================================================
 
     def load_settings(self):
@@ -448,6 +480,7 @@ class AugmentCreator(QMainWindow):
                     QColor(color_hex)
                 )
 
+
     def save_settings(self):
 
         colors = []
@@ -477,6 +510,7 @@ class AugmentCreator(QMainWindow):
                 f,
                 indent=4
             )
+
 
     # ========================================================
     # UI
@@ -761,6 +795,32 @@ class AugmentCreator(QMainWindow):
         toolbar.addWidget(
             color_button
         )
+
+
+        # ----------------------------------------------------
+        # STAT ICONS
+        # ----------------------------------------------------
+
+        stat_icon_button = QPushButton(
+            "Stat Icons"
+        )
+
+        stat_icon_menu = self.build_stat_icon_menu(
+            stat_icon_button
+        )
+
+        stat_icon_button.setMenu(
+            stat_icon_menu
+        )
+
+        toolbar.addWidget(
+            stat_icon_button
+        )
+
+
+        # ----------------------------------------------------
+        # TOOLBAR SPACER
+        # ----------------------------------------------------
 
         toolbar.addStretch()
 
@@ -1248,6 +1308,7 @@ class AugmentCreator(QMainWindow):
     # ========================================================
 
     def toggle_bold(self):
+
         cursor = self.description_edit.textCursor()
 
         if not cursor.hasSelection():
@@ -1255,16 +1316,30 @@ class AugmentCreator(QMainWindow):
 
         format = QTextCharFormat()
 
-        current_weight = cursor.charFormat().fontWeight()
+        current_weight = (
+            cursor.charFormat()
+            .fontWeight()
+        )
 
         if current_weight == QFont.Bold:
-            format.setFontWeight(QFont.Normal)
+
+            format.setFontWeight(
+                QFont.Normal
+            )
+
         else:
-            format.setFontWeight(QFont.Bold)
 
-        cursor.mergeCharFormat(format)
+            format.setFontWeight(
+                QFont.Bold
+            )
 
-        self.description_edit.setTextCursor(cursor)
+        cursor.mergeCharFormat(
+            format
+        )
+
+        self.description_edit.setTextCursor(
+            cursor
+        )
 
         self.update_preview()
 
@@ -1312,8 +1387,6 @@ class AugmentCreator(QMainWindow):
             "Choose Text Color"
         )
 
-        self.save_settings()
-
         if not color.isValid():
             return
 
@@ -1331,8 +1404,164 @@ class AugmentCreator(QMainWindow):
             cursor
         )
 
+        self.save_settings()
+
         self.update_preview()
 
+
+    # ========================================================
+    # STAT ICONS
+    # ========================================================
+
+    def build_stat_icon_menu(
+        self,
+        button
+    ):
+
+        from PySide6.QtWidgets import QMenu
+
+        menu = QMenu(
+            button
+        )
+
+        for label, filename in STAT_ICONS.items():
+
+            icon_path = os.path.join(
+                STAT_ICONS_DIR,
+                filename
+            )
+
+            action = menu.addAction(
+                label
+            )
+
+            action.triggered.connect(
+                lambda checked=False,
+                path=icon_path:
+                self.insert_stat_icon(path)
+            )
+
+        return menu
+
+
+    def insert_stat_icon(
+        self,
+        icon_path
+    ):
+
+        if not os.path.exists(
+            icon_path
+        ):
+            print(
+                f"Stat icon not found: {icon_path}"
+            )
+            return
+
+        filename = os.path.basename(icon_path)
+        icon_size = STAT_ICON_CUSTOM_SIZES.get(filename, STAT_ICON_SIZE)
+
+        cursor = (
+            self.description_edit
+            .textCursor()
+        )
+
+        image_format = QTextImageFormat()
+
+        image_format.setName(
+            QUrl.fromLocalFile(
+                icon_path
+            ).toString()
+        )
+
+        image_format.setWidth(
+            icon_size
+        )
+
+        image_format.setHeight(
+            icon_size
+        )
+
+        # Apply centering only to critical strike
+        if filename == "critical_strike.png":
+            image_format.setVerticalAlignment(
+                QTextImageFormat.AlignMiddle
+            )
+
+        cursor.insertImage(
+            image_format
+        )
+
+        self.description_edit.setTextCursor(
+            cursor
+        )
+
+        self.description_edit.ensureCursorVisible()
+
+        self.update_preview()
+
+
+    # ========================================================
+    # REGISTER STAT ICONS
+    # ========================================================
+
+    def register_stat_icons_in_document(
+        self,
+        document,
+        html_text
+    ):
+
+        image_urls = re.findall(
+            r'<img[^>]+src="([^"]+)"',
+            html_text,
+            flags=re.IGNORECASE
+        )
+
+        for image_url in image_urls:
+
+            if not image_url.startswith(
+                "file:///"
+            ):
+                continue
+
+            image_path = QUrl(
+                image_url
+            ).toLocalFile()
+
+            if not os.path.exists(
+                image_path
+            ):
+                continue
+
+            image = QImage(
+                image_path
+            )
+
+            if image.isNull():
+                continue
+
+            # Convert to ARGB32 to inspect the alpha channel
+            image = image.convertToFormat(QImage.Format_ARGB32)
+
+            # Auto-crop transparent borders
+            min_x, min_y = image.width(), image.height()
+            max_x, max_y = -1, -1
+
+            for y in range(image.height()):
+                for x in range(image.width()):
+                    if (image.pixel(x, y) >> 24) & 0xFF > 15:  # non-transparent pixel
+                        min_x = min(min_x, x)
+                        max_x = max(max_x, x)
+                        min_y = min(min_y, y)
+                        max_y = max(max_y, y)
+
+            if max_x >= min_x and max_y >= min_y:
+                image = image.copy(min_x, min_y, max_x - min_x + 1, max_y - min_y + 1)
+
+            document.addResource(
+                QTextDocument.ImageResource,
+                QUrl(image_url),
+                image
+            )
 
     # ========================================================
     # FIND ICON
@@ -1520,10 +1749,6 @@ class AugmentCreator(QMainWindow):
             QFont.HintingPreference.PreferNoHinting
         )
 
-        # Spiegel-Bold.otf and Spiegel-Regular.otf also share one family
-        # name ("Spiegel"), same situation as Beaufort - explicit weight
-        # is required to actually get the bold face instead of Qt's
-        # default-to-Regular behavior.
         tags_font.setWeight(
             QFont.Weight.Bold
         )
@@ -1589,122 +1814,149 @@ class AugmentCreator(QMainWindow):
         current_x = start_x
 
         for index, tag in enumerate(
-            self.tags
-        ):
+                    self.tags
+                ):
 
-            box_width = tag_widths[index]
+                    box_width = tag_widths[index]
 
-            rect = QRectF(
-                current_x,
-                start_y,
-                box_width,
-                box_height
-            )
-
-
-            # ------------------------------------------------
-            # Shadow
-            # ------------------------------------------------
-
-            if (
-                TAG_SHADOW_OFFSET_X != 0
-                or TAG_SHADOW_OFFSET_Y != 0
-            ):
-
-                shadow_rect = QRectF(
-                    rect.left()
-                    + TAG_SHADOW_OFFSET_X,
-
-                    rect.top()
-                    + TAG_SHADOW_OFFSET_Y,
-
-                    rect.width(),
-                    rect.height()
-                )
-
-                painter.setPen(
-                    Qt.NoPen
-                )
-
-                painter.setBrush(
-                    QColor(
-                        TAG_SHADOW_COLOR
+                    rect = QRectF(
+                        current_x,
+                        start_y,
+                        box_width,
+                        box_height
                     )
-                )
 
-                painter.drawRoundedRect(
-                    shadow_rect,
-                    TAG_BOX_RADIUS,
-                    TAG_BOX_RADIUS
-                )
+                    is_quest = str(tag).strip().lower() == "quest"
 
+                    # ------------------------------------------------
+                    # Shadow
+                    # ------------------------------------------------
 
-            # ------------------------------------------------
-            # Box
-            # ------------------------------------------------
+                    if (
+                        TAG_SHADOW_OFFSET_X != 0
+                        or TAG_SHADOW_OFFSET_Y != 0
+                    ):
 
-            gradient = QLinearGradient(
-                rect.left(),
-                rect.top(),
-                rect.right(),
-                rect.top()
-            )
-            
-            gradient.setColorAt(0.0, QColor(TAG_BOX_COLOR_EDGE))
-            gradient.setColorAt(0.5, QColor(TAG_BOX_COLOR_CENTER))
-            gradient.setColorAt(1.0, QColor(TAG_BOX_COLOR_EDGE))
+                        shadow_rect = QRectF(
+                            rect.left()
+                            + TAG_SHADOW_OFFSET_X,
 
-            if TAG_BORDER_WIDTH > 0:
-                painter.setPen(QColor(TAG_BORDER_COLOR))
-            else:
-                painter.setPen(Qt.NoPen)
+                            rect.top()
+                            + TAG_SHADOW_OFFSET_Y,
 
-            painter.setBrush(gradient)
+                            rect.width(),
+                            rect.height()
+                        )
 
-            painter.drawRoundedRect(
-                rect,
-                TAG_BOX_RADIUS,
-                TAG_BOX_RADIUS
-            )
+                        painter.setPen(
+                            Qt.NoPen
+                        )
 
+                        painter.setBrush(
+                            QColor(
+                                TAG_SHADOW_COLOR
+                            )
+                        )
 
-            # ------------------------------------------------
-            # Text
-            # ------------------------------------------------
+                        painter.drawRoundedRect(
+                            shadow_rect,
+                            TAG_BOX_RADIUS,
+                            TAG_BOX_RADIUS
+                        )
 
-            painter.setFont(
-                tags_font
-            )
+                    # ------------------------------------------------
+                    # Box
+                    # ------------------------------------------------
 
-            painter.setPen(
-                QColor(
-                    TAG_TEXT_COLOR
-                )
-            )
+                    edge_color = TAG_QUEST_BOX_COLOR_EDGE if is_quest else TAG_BOX_COLOR_EDGE
+                    center_color = TAG_QUEST_BOX_COLOR_CENTER if is_quest else TAG_BOX_COLOR_CENTER
 
-            text_rect = rect.adjusted(
-                TAG_PADDING_X,
-                TAG_PADDING_Y,
-                -TAG_PADDING_X,
-                -TAG_PADDING_Y
-            )
+                    gradient = QLinearGradient(
+                        rect.left(),
+                        rect.top(),
+                        rect.right(),
+                        rect.top()
+                    )
 
-            painter.drawText(
-                text_rect,
-                TAG_TEXT_ALIGNMENT,
-                str(tag)
-            )
+                    gradient.setColorAt(
+                        0.0,
+                        QColor(edge_color)
+                    )
 
-            current_x += (
-                box_width
-                + TAG_GAP
-            )
+                    gradient.setColorAt(
+                        0.5,
+                        QColor(center_color)
+                    )
+
+                    gradient.setColorAt(
+                        1.0,
+                        QColor(edge_color)
+                    )
+
+                    if TAG_BORDER_WIDTH > 0:
+
+                        painter.setPen(
+                            QColor(TAG_BORDER_COLOR)
+                        )
+
+                    else:
+
+                        painter.setPen(
+                            Qt.NoPen
+                        )
+
+                    painter.setBrush(
+                        gradient
+                    )
+
+                    painter.drawRoundedRect(
+                        rect,
+                        TAG_BOX_RADIUS,
+                        TAG_BOX_RADIUS
+                    )
+
+                    # ------------------------------------------------
+                    # Text
+                    # ------------------------------------------------
+
+                    painter.setFont(
+                        tags_font
+                    )
+
+                    text_color = TAG_QUEST_TEXT_COLOR if is_quest else TAG_TEXT_COLOR
+                    painter.setPen(
+                        QColor(
+                            text_color
+                        )
+                    )
+
+                    text_rect = rect.adjusted(
+                        TAG_PADDING_X,
+                        TAG_PADDING_Y,
+                        -TAG_PADDING_X,
+                        -TAG_PADDING_Y
+                    )
+
+                    painter.drawText(
+                        text_rect,
+                        TAG_TEXT_ALIGNMENT,
+                        str(tag)
+                    )
+
+                    current_x += (
+                        box_width
+                        + TAG_GAP
+                    )
+
 
     # ========================================================
     # DEBUG BOUNDS
     # ========================================================
 
-    def draw_debug_bounds(self, painter):
+    def draw_debug_bounds(
+        self,
+        painter
+    ):
 
         if not DEBUG_BOUNDS:
             return
@@ -1712,7 +1964,11 @@ class AugmentCreator(QMainWindow):
         painter.save()
 
         pen = painter.pen()
-        pen.setWidth(2)
+
+        pen.setWidth(
+            2
+        )
+
 
         # ----------------------------------------------------
         # ICON
@@ -1797,8 +2053,9 @@ class AugmentCreator(QMainWindow):
             DESCRIPTION_HEIGHT
         )
 
-
         painter.restore()
+
+
     # ========================================================
     # DRAW CARD
     # ========================================================
@@ -1921,26 +2178,10 @@ class AugmentCreator(QMainWindow):
             TITLE_FONT_SIZE
         )
 
-        # Disable Qt's hint-fitting for this font. Beaufort's outlines
-        # are PostScript/CFF curves (not TrueType), and Qt's hinter can
-        # snap control points to the pixel grid in a way that corrupts
-        # compound curves (the counter in "A", the spur in "G") at
-        # small point sizes, while simple straight strokes are
-        # unaffected. PreferNoHinting draws the outline as designed.
         title_font.setHintingPreference(
             QFont.HintingPreference.PreferNoHinting
         )
 
-        # IMPORTANT: BeaufortForLOL-Bold.otf and BeaufortForLOL-Regular.otf
-        # both register under the exact same internal family name
-        # ("Beaufort for LOL") - Bold and Regular are two weights of one
-        # family, not two separate families. That means QFont(family)
-        # alone is ambiguous: without an explicit weight, Qt defaults to
-        # picking the Regular (400) face. We have to ask for Bold (700)
-        # explicitly to get the actual bold file. (Earlier we removed
-        # setBold(True) here thinking it was the cause of the glyph
-        # corruption bug - it wasn't, the hinting was. This weight
-        # request is safe to have back now that hinting is disabled.)
         title_font.setWeight(
             QFont.Weight.Bold
         )
@@ -2012,24 +2253,6 @@ class AugmentCreator(QMainWindow):
             DESCRIPTION_LETTER_SPACING
         )
 
-        document = QTextDocument()
-
-        document.setDocumentMargin(
-            0
-        )
-
-        document.setDefaultFont(
-            default_font
-        )
-
-        document.setHtml(
-            description_html
-        )
-
-        document.setTextWidth(
-            DESCRIPTION_WIDTH
-        )
-
 
         # ====================================================
         # DESCRIPTION ALIGNMENT
@@ -2099,12 +2322,16 @@ class AugmentCreator(QMainWindow):
                 f'</div>'
             )
 
+
+        # Remove the editor's generated font-family CSS so the
+        # card renderer can consistently use Beaufort Regular.
         aligned_html = re.sub(
             r'font-family\s*:[^;"]+;?',
             '',
             aligned_html,
             flags=re.IGNORECASE
         )
+
 
         # ====================================================
         # FINAL DESCRIPTION DOCUMENT
@@ -2120,6 +2347,12 @@ class AugmentCreator(QMainWindow):
             default_font
         )
 
+        # Register local stat icon images before loading the HTML.
+        self.register_stat_icons_in_document(
+            document,
+            aligned_html
+        )
+
         document.setHtml(
             aligned_html
         )
@@ -2127,6 +2360,11 @@ class AugmentCreator(QMainWindow):
         document.setTextWidth(
             DESCRIPTION_WIDTH
         )
+
+
+        # ====================================================
+        # DRAW DESCRIPTION
+        # ====================================================
 
         description_rect = QRectF(
             DESCRIPTION_X,
@@ -2291,6 +2529,7 @@ class AugmentCreator(QMainWindow):
         print(
             f"Exported: {file_path}"
         )
+
 
 # ============================================================
 # START
