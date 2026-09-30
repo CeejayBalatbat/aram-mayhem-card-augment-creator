@@ -13,28 +13,28 @@
       "icon": "1001_Titans_Resolve_large.png",
       "sourceIcon": "iamthejuggernaut_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
+          {
+            "champion_id": "897",
+            "tier": 2
+          },
           {
             "champion_id": "33",
             "tier": 3
           },
           {
-            "champion_id": "897",
-            "tier": 4
-          },
-          {
-            "champion_id": "14",
-            "tier": 4
-          },
-          {
-            "champion_id": "516",
-            "tier": 3
+            "champion_id": "72",
+            "tier": 2
           },
           {
             "champion_id": "78",
+            "tier": 2
+          },
+          {
+            "champion_id": "14",
             "tier": 3
           }
         ]
@@ -53,13 +53,13 @@
       "icon": "1002_Apex_Inventor_large.png",
       "sourceIcon": "apexinventor_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "421",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "14",
@@ -67,14 +67,14 @@
           },
           {
             "champion_id": "72",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "516",
             "tier": 2
           },
           {
-            "champion_id": "240",
+            "champion_id": "36",
             "tier": 4
           }
         ]
@@ -94,7 +94,7 @@
       "icon": "1004_Back_To_Basics_large.png",
       "sourceIcon": "backtobasics_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -136,7 +136,7 @@
       "icon": "1005_Wee_Woo_Wee_Woo_large.png",
       "sourceIcon": "weewooweewoo_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -174,29 +174,29 @@
       "icon": "1006_Blade_Waltz_large.png",
       "sourceIcon": "bladewaltz_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
-          {
-            "champion_id": "86",
-            "tier": 1
-          },
           {
             "champion_id": "114",
             "tier": 2
           },
           {
+            "champion_id": "86",
+            "tier": 1
+          },
+          {
             "champion_id": "11",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "805",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "107",
-            "tier": 3
+            "tier": 2
           }
         ]
       }
@@ -212,7 +212,7 @@
       "icon": "1007_Blunt_Force_large.png",
       "sourceIcon": "bluntforce_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
@@ -221,11 +221,11 @@
             "tier": 1
           },
           {
-            "champion_id": "238",
+            "champion_id": "126",
             "tier": 1
           },
           {
-            "champion_id": "126",
+            "champion_id": "238",
             "tier": 1
           },
           {
@@ -250,7 +250,7 @@
       "icon": "1011_Cant_Touch_This_large.png",
       "sourceIcon": "canttouchthis_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -291,7 +291,7 @@
       "icon": "1013_Celestial_Body_large.png",
       "sourceIcon": "celestialbody_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -304,16 +304,16 @@
             "tier": 1
           },
           {
-            "champion_id": "14",
-            "tier": 1
-          },
-          {
             "champion_id": "72",
             "tier": 1
           },
           {
-            "champion_id": "526",
+            "champion_id": "516",
             "tier": 2
+          },
+          {
+            "champion_id": "14",
+            "tier": 1
           }
         ]
       }
@@ -333,7 +333,7 @@
       "icon": "1015_Circle_of_Death_large.png",
       "sourceIcon": "circleofdeath_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -373,7 +373,7 @@
       "icon": "1018_Courage_of_the_Colossus_large.png",
       "sourceIcon": "courageofthecolossus_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -394,7 +394,7 @@
             "tier": 1
           },
           {
-            "champion_id": "412",
+            "champion_id": "57",
             "tier": 1
           }
         ]
@@ -414,9 +414,9 @@
       "icon": "1019_Dashing_large.png",
       "sourceIcon": "dashing_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "105",
@@ -436,7 +436,7 @@
           },
           {
             "champion_id": "246",
-            "tier": 3
+            "tier": 2
           }
         ]
       }
@@ -455,9 +455,9 @@
       "icon": "1020_Dawnbringers_Resolve_large.png",
       "sourceIcon": "dawnbringersresolve_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 3,
+        "tier": 2,
         "top_champions": [
           {
             "champion_id": "36",
@@ -465,10 +465,10 @@
           },
           {
             "champion_id": "201",
-            "tier": 1
+            "tier": 2
           },
           {
-            "champion_id": "516",
+            "champion_id": "72",
             "tier": 1
           },
           {
@@ -477,7 +477,7 @@
           },
           {
             "champion_id": "113",
-            "tier": 2
+            "tier": 1
           }
         ]
       }
@@ -496,7 +496,7 @@
       "icon": "1022_Deft_large.png",
       "sourceIcon": "deft_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -517,7 +517,7 @@
             "tier": 2
           },
           {
-            "champion_id": "777",
+            "champion_id": "29",
             "tier": 1
           }
         ]
@@ -536,9 +536,9 @@
       "icon": "1025_Dive_Bomber_large.png",
       "sourceIcon": "divebomber_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "30",
@@ -546,19 +546,19 @@
           },
           {
             "champion_id": "14",
-            "tier": 2
-          },
-          {
-            "champion_id": "33",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "54",
             "tier": 1
           },
           {
-            "champion_id": "32",
+            "champion_id": "33",
             "tier": 2
+          },
+          {
+            "champion_id": "32",
+            "tier": 1
           }
         ]
       }
@@ -577,7 +577,7 @@
       "icon": "1026_Dont_Blink_large.png",
       "sourceIcon": "dontblink_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -598,8 +598,8 @@
             "tier": 1
           },
           {
-            "champion_id": "28",
-            "tier": 1
+            "champion_id": "120",
+            "tier": 3
           }
         ]
       }
@@ -617,7 +617,7 @@
       "icon": "1027_Earthwake_large.png",
       "sourceIcon": "earthwake_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -626,11 +626,11 @@
             "tier": 1
           },
           {
-            "champion_id": "555",
+            "champion_id": "92",
             "tier": 1
           },
           {
-            "champion_id": "92",
+            "champion_id": "555",
             "tier": 1
           },
           {
@@ -638,8 +638,8 @@
             "tier": 2
           },
           {
-            "champion_id": "64",
-            "tier": 4
+            "champion_id": "246",
+            "tier": 1
           }
         ]
       }
@@ -657,7 +657,7 @@
       "icon": "1028_Erosion_large.png",
       "sourceIcon": "erosion_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -666,11 +666,11 @@
             "tier": 1
           },
           {
-            "champion_id": "74",
+            "champion_id": "63",
             "tier": 1
           },
           {
-            "champion_id": "63",
+            "champion_id": "74",
             "tier": 1
           },
           {
@@ -678,7 +678,7 @@
             "tier": 1
           },
           {
-            "champion_id": "910",
+            "champion_id": "68",
             "tier": 1
           }
         ]
@@ -698,7 +698,7 @@
       "icon": "1029_Ethereal_Weapon_large.png",
       "sourceIcon": "etherealweapon_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -738,7 +738,7 @@
       "icon": "1030_Eureka_large.png",
       "sourceIcon": "eureka_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
@@ -751,15 +751,15 @@
             "tier": 1
           },
           {
-            "champion_id": "101",
-            "tier": 2
-          },
-          {
-            "champion_id": "112",
+            "champion_id": "30",
             "tier": 1
           },
           {
-            "champion_id": "30",
+            "champion_id": "101",
+            "tier": 1
+          },
+          {
+            "champion_id": "115",
             "tier": 1
           }
         ]
@@ -778,28 +778,28 @@
       "icon": "1034_Veil_of_Warding_large.png",
       "sourceIcon": "poltergeist_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "142",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "28",
-            "tier": 2
-          },
-          {
-            "champion_id": "246",
-            "tier": 2
-          },
-          {
-            "champion_id": "60",
-            "tier": 4
+            "tier": 3
           },
           {
             "champion_id": "127",
+            "tier": 1
+          },
+          {
+            "champion_id": "60",
+            "tier": 3
+          },
+          {
+            "champion_id": "238",
             "tier": 2
           }
         ]
@@ -818,9 +818,9 @@
       "icon": "1036_Firebrand_large.png",
       "sourceIcon": "firebrand_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "10",
@@ -828,18 +828,18 @@
           },
           {
             "champion_id": "200",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "429",
             "tier": 2
           },
           {
-            "champion_id": "6",
+            "champion_id": "96",
             "tier": 2
           },
           {
-            "champion_id": "96",
+            "champion_id": "6",
             "tier": 3
           }
         ]
@@ -859,7 +859,7 @@
       "icon": "1037_First-Aid_Kit_large.png",
       "sourceIcon": "firstaidkit_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -868,11 +868,11 @@
             "tier": 1
           },
           {
-            "champion_id": "37",
+            "champion_id": "350",
             "tier": 1
           },
           {
-            "champion_id": "350",
+            "champion_id": "37",
             "tier": 1
           },
           {
@@ -897,7 +897,7 @@
       "icon": "1038_From_Beginning_To_End_large.png",
       "sourceIcon": "frombeginningtoend_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -914,11 +914,11 @@
             "tier": 1
           },
           {
-            "champion_id": "246",
+            "champion_id": "126",
             "tier": 1
           },
           {
-            "champion_id": "126",
+            "champion_id": "246",
             "tier": 1
           }
         ]
@@ -937,9 +937,9 @@
       "icon": "1041_Goliath_large.png",
       "sourceIcon": "goliath_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 2,
+        "tier": 1,
         "top_champions": [
           {
             "champion_id": "223",
@@ -977,9 +977,9 @@
       "icon": "1044_Ice_Cold_large.png",
       "sourceIcon": "icecold_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "34",
@@ -987,18 +987,18 @@
           },
           {
             "champion_id": "136",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "143",
-            "tier": 3
-          },
-          {
-            "champion_id": "27",
             "tier": 2
           },
           {
             "champion_id": "74",
+            "tier": 3
+          },
+          {
+            "champion_id": "27",
             "tier": 3
           }
         ]
@@ -1017,7 +1017,7 @@
       "icon": "1045_Infernal_Conduit_large.png",
       "sourceIcon": "infernalconduit_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -1038,7 +1038,7 @@
             "tier": 1
           },
           {
-            "champion_id": "910",
+            "champion_id": "136",
             "tier": 1
           }
         ]
@@ -1057,7 +1057,7 @@
       "icon": "1046_Infernal_Soul_large.png",
       "sourceIcon": "infernalsoul_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -1070,16 +1070,16 @@
             "tier": 2
           },
           {
-            "champion_id": "142",
+            "champion_id": "115",
             "tier": 2
           },
           {
             "champion_id": "1",
-            "tier": 2
+            "tier": 3
           },
           {
-            "champion_id": "161",
-            "tier": 3
+            "champion_id": "142",
+            "tier": 2
           }
         ]
       }
@@ -1097,7 +1097,7 @@
       "icon": "1047_Its_Critical_large.png",
       "sourceIcon": "itscritical_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -1110,16 +1110,16 @@
             "tier": 1
           },
           {
-            "champion_id": "234",
-            "tier": 1
+            "champion_id": "202",
+            "tier": 3
           },
           {
             "champion_id": "157",
             "tier": 2
           },
           {
-            "champion_id": "202",
-            "tier": 3
+            "champion_id": "104",
+            "tier": 2
           }
         ]
       }
@@ -1137,21 +1137,21 @@
       "icon": "1048_Jeweled_Gauntlet_large.png",
       "sourceIcon": "jeweledgauntlet_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
-          {
-            "champion_id": "126",
-            "tier": 1
-          },
           {
             "champion_id": "101",
             "tier": 1
           },
           {
+            "champion_id": "126",
+            "tier": 2
+          },
+          {
             "champion_id": "163",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "134",
@@ -1178,13 +1178,13 @@
       "icon": "1051_Light_Em_Up_large.png",
       "sourceIcon": "lightemup_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
           {
             "champion_id": "804",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "166",
@@ -1192,7 +1192,7 @@
           },
           {
             "champion_id": "10",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "222",
@@ -1200,7 +1200,7 @@
           },
           {
             "champion_id": "18",
-            "tier": 1
+            "tier": 2
           }
         ]
       }
@@ -1220,7 +1220,7 @@
       "icon": "1053_Mad_Scientist_large.png",
       "sourceIcon": "madscientist_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -1229,15 +1229,15 @@
             "tier": 1
           },
           {
-            "champion_id": "875",
-            "tier": 1
-          },
-          {
-            "champion_id": "14",
+            "champion_id": "27",
             "tier": 1
           },
           {
             "champion_id": "126",
+            "tier": 1
+          },
+          {
+            "champion_id": "875",
             "tier": 1
           },
           {
@@ -1258,9 +1258,9 @@
       "icon": "1054_Master_of_Duality_large.png",
       "sourceIcon": "masterofduality_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "10",
@@ -1268,19 +1268,19 @@
           },
           {
             "champion_id": "887",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "5",
             "tier": 1
           },
           {
-            "champion_id": "55",
+            "champion_id": "268",
             "tier": 2
           },
           {
-            "champion_id": "804",
-            "tier": 1
+            "champion_id": "55",
+            "tier": 2
           }
         ]
       }
@@ -1298,7 +1298,7 @@
       "icon": "1056_Mind_to_Matter_large.png",
       "sourceIcon": "mindtomatter_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -1338,7 +1338,7 @@
       "icon": "1057_Mountain_Soul_large.png",
       "sourceIcon": "mountainsoul_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -1348,7 +1348,11 @@
           },
           {
             "champion_id": "201",
-            "tier": 4
+            "tier": 2
+          },
+          {
+            "champion_id": "412",
+            "tier": 1
           },
           {
             "champion_id": "113",
@@ -1356,11 +1360,7 @@
           },
           {
             "champion_id": "33",
-            "tier": 2
-          },
-          {
-            "champion_id": "412",
-            "tier": 3
+            "tier": 4
           }
         ]
       }
@@ -1379,7 +1379,7 @@
       "icon": "1058_Mystic_Punch_large.png",
       "sourceIcon": "mysticpunch_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -1392,15 +1392,15 @@
             "tier": 1
           },
           {
+            "champion_id": "120",
+            "tier": 1
+          },
+          {
             "champion_id": "157",
             "tier": 1
           },
           {
             "champion_id": "777",
-            "tier": 1
-          },
-          {
-            "champion_id": "120",
             "tier": 1
           }
         ]
@@ -1419,7 +1419,7 @@
       "icon": "1060_Ocean_Soul_large.png",
       "sourceIcon": "oceansoul_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -1429,19 +1429,19 @@
           },
           {
             "champion_id": "910",
-            "tier": 2
+            "tier": 1
           },
           {
-            "champion_id": "201",
-            "tier": 1
+            "champion_id": "50",
+            "tier": 2
           },
           {
             "champion_id": "516",
             "tier": 2
           },
           {
-            "champion_id": "223",
-            "tier": 1
+            "champion_id": "26",
+            "tier": 2
           }
         ]
       }
@@ -1457,7 +1457,7 @@
       "icon": "1061_Ok_Boomerang_large.png",
       "sourceIcon": "okboomerang_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -1466,20 +1466,20 @@
             "tier": 2
           },
           {
+            "champion_id": "150",
+            "tier": 1
+          },
+          {
             "champion_id": "76",
             "tier": 1
           },
           {
-            "champion_id": "150",
-            "tier": 2
+            "champion_id": "115",
+            "tier": 1
           },
           {
             "champion_id": "15",
-            "tier": 2
-          },
-          {
-            "champion_id": "432",
-            "tier": 1
+            "tier": 3
           }
         ]
       }
@@ -1495,16 +1495,16 @@
       "icon": "1062_Omni_Soul_large.png",
       "sourceIcon": "omnisoul_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
           {
-            "champion_id": "136",
+            "champion_id": "163",
             "tier": 1
           },
           {
-            "champion_id": "163",
+            "champion_id": "136",
             "tier": 1
           },
           {
@@ -1512,12 +1512,12 @@
             "tier": 1
           },
           {
-            "champion_id": "101",
+            "champion_id": "202",
             "tier": 1
           },
           {
-            "champion_id": "202",
-            "tier": 2
+            "champion_id": "101",
+            "tier": 1
           }
         ]
       }
@@ -1536,7 +1536,7 @@
       "icon": "1063_Outlaws_Grit_large.png",
       "sourceIcon": "outlawsgrit_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -1609,7 +1609,7 @@
       "icon": "1067_Rejuvenation_large.png",
       "sourceIcon": "rabblerousing_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -1619,11 +1619,11 @@
           },
           {
             "champion_id": "44",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "33",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "64",
@@ -1649,7 +1649,7 @@
       "icon": "1068_Recursion_large.png",
       "sourceIcon": "recursion_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
@@ -1662,16 +1662,16 @@
             "tier": 2
           },
           {
-            "champion_id": "99",
-            "tier": 1
-          },
-          {
             "champion_id": "17",
             "tier": 1
           },
           {
             "champion_id": "126",
             "tier": 2
+          },
+          {
+            "champion_id": "141",
+            "tier": 1
           }
         ]
       }
@@ -1689,7 +1689,7 @@
       "icon": "1071_Scopier_Weapons_large.png",
       "sourceIcon": "scopierweapons_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
@@ -1729,28 +1729,28 @@
       "icon": "1072_Searing_Dawn_large.png",
       "sourceIcon": "searingdawn_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "888",
-            "tier": 2
-          },
-          {
-            "champion_id": "432",
-            "tier": 1
+            "tier": 3
           },
           {
             "champion_id": "267",
-            "tier": 4
-          },
-          {
-            "champion_id": "25",
             "tier": 2
           },
           {
             "champion_id": "350",
+            "tier": 2
+          },
+          {
+            "champion_id": "432",
+            "tier": 3
+          },
+          {
+            "champion_id": "25",
             "tier": 2
           }
         ]
@@ -1770,7 +1770,7 @@
       "icon": "1073_Shadow_Runner_large.png",
       "sourceIcon": "shadowrunner_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -1810,28 +1810,28 @@
       "icon": "1074_Shrink_Ray_large.png",
       "sourceIcon": "shrinkray_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "429",
-            "tier": 2
-          },
-          {
-            "champion_id": "10",
             "tier": 3
           },
           {
-            "champion_id": "432",
-            "tier": 4
-          },
-          {
             "champion_id": "6",
+            "tier": 3
+          },
+          {
+            "champion_id": "10",
             "tier": 4
           },
           {
-            "champion_id": "222",
+            "champion_id": "432",
+            "tier": 3
+          },
+          {
+            "champion_id": "235",
             "tier": 3
           }
         ]
@@ -1850,7 +1850,7 @@
       "icon": "1076_Sonic_Boom_large.png",
       "sourceIcon": "sonicboom_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -1891,7 +1891,7 @@
       "icon": "1077_Soul_Siphon_large.png",
       "sourceIcon": "soulsiphon_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
@@ -1904,11 +1904,11 @@
             "tier": 1
           },
           {
-            "champion_id": "104",
+            "champion_id": "360",
             "tier": 1
           },
           {
-            "champion_id": "360",
+            "champion_id": "104",
             "tier": 1
           },
           {
@@ -1929,28 +1929,28 @@
       "icon": "1079_Symphony_of_War_large.png",
       "sourceIcon": "symphonyofwar_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
+          {
+            "champion_id": "429",
+            "tier": 2
+          },
           {
             "champion_id": "222",
             "tier": 2
           },
           {
-            "champion_id": "429",
-            "tier": 3
-          },
-          {
             "champion_id": "200",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "268",
             "tier": 2
           },
           {
-            "champion_id": "157",
+            "champion_id": "523",
             "tier": 3
           }
         ]
@@ -1969,7 +1969,7 @@
       "icon": "1080_Tank_It_Or_Leave_It_large.png",
       "sourceIcon": "tankitorleaveit_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -1986,11 +1986,11 @@
             "tier": 1
           },
           {
-            "champion_id": "360",
+            "champion_id": "895",
             "tier": 1
           },
           {
-            "champion_id": "895",
+            "champion_id": "360",
             "tier": 1
           }
         ]
@@ -2010,9 +2010,9 @@
       "icon": "1081_Tap_Dancer_large.png",
       "sourceIcon": "tapdancer_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 3,
+        "tier": 2,
         "top_champions": [
           {
             "champion_id": "222",
@@ -2024,14 +2024,14 @@
           },
           {
             "champion_id": "221",
-            "tier": 2
-          },
-          {
-            "champion_id": "523",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "804",
+            "tier": 1
+          },
+          {
+            "champion_id": "18",
             "tier": 1
           }
         ]
@@ -2050,13 +2050,13 @@
       "icon": "1084_Thread_the_Needle_large.png",
       "sourceIcon": "threadtheneedle_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
           {
             "champion_id": "238",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "91",
@@ -2072,7 +2072,7 @@
           },
           {
             "champion_id": "28",
-            "tier": 3
+            "tier": 2
           }
         ]
       }
@@ -2090,29 +2090,29 @@
       "icon": "1087_Typhoon_large.png",
       "sourceIcon": "typhoon_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
           {
+            "champion_id": "166",
+            "tier": 1
+          },
+          {
             "champion_id": "222",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "804",
-            "tier": 2
+            "tier": 3
           },
           {
-            "champion_id": "166",
-            "tier": 2
-          },
-          {
-            "champion_id": "10",
+            "champion_id": "18",
             "tier": 2
           },
           {
             "champion_id": "235",
-            "tier": 1
+            "tier": 2
           }
         ]
       }
@@ -2130,9 +2130,9 @@
       "icon": "1088_Ultimate_Revolution_large.png",
       "sourceIcon": "ultimaterevolution_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "30",
@@ -2140,7 +2140,7 @@
           },
           {
             "champion_id": "888",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "54",
@@ -2170,16 +2170,16 @@
       "icon": "1092_Vulnerability_large.png",
       "sourceIcon": "vulnerability_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
           {
-            "champion_id": "901",
+            "champion_id": "41",
             "tier": 1
           },
           {
-            "champion_id": "41",
+            "champion_id": "901",
             "tier": 1
           },
           {
@@ -2191,7 +2191,7 @@
             "tier": 1
           },
           {
-            "champion_id": "29",
+            "champion_id": "42",
             "tier": 1
           }
         ]
@@ -2211,7 +2211,7 @@
       "icon": "1095_Windspeakers_Blessing_large.png",
       "sourceIcon": "windspeakersblessing_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -2224,15 +2224,15 @@
             "tier": 1
           },
           {
-            "champion_id": "37",
-            "tier": 1
-          },
-          {
             "champion_id": "117",
             "tier": 1
           },
           {
-            "champion_id": "427",
+            "champion_id": "37",
+            "tier": 1
+          },
+          {
+            "champion_id": "902",
             "tier": 1
           }
         ]
@@ -2249,7 +2249,7 @@
       "icon": "1097_Witchful_Thinking_large.png",
       "sourceIcon": "witchfulthinking_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -2258,20 +2258,20 @@
             "tier": 2
           },
           {
-            "champion_id": "134",
-            "tier": 2
-          },
-          {
             "champion_id": "99",
             "tier": 2
           },
           {
-            "champion_id": "1",
-            "tier": 3
+            "champion_id": "134",
+            "tier": 2
           },
           {
-            "champion_id": "161",
-            "tier": 3
+            "champion_id": "1",
+            "tier": 2
+          },
+          {
+            "champion_id": "711",
+            "tier": 1
           }
         ]
       }
@@ -2290,7 +2290,7 @@
       "icon": "1098_With_Haste_large.png",
       "sourceIcon": "withhaste_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -2303,16 +2303,16 @@
             "tier": 2
           },
           {
+            "champion_id": "26",
+            "tier": 2
+          },
+          {
             "champion_id": "8",
             "tier": 2
           },
           {
-            "champion_id": "26",
-            "tier": 1
-          },
-          {
-            "champion_id": "112",
-            "tier": 1
+            "champion_id": "555",
+            "tier": 2
           }
         ]
       }
@@ -2330,7 +2330,7 @@
       "icon": "1103_Bread_And_Butter_large.png",
       "sourceIcon": "genericabilityaugmenticon_gold.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -2340,7 +2340,7 @@
           },
           {
             "champion_id": "26",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "120",
@@ -2352,7 +2352,7 @@
           },
           {
             "champion_id": "114",
-            "tier": 1
+            "tier": 2
           }
         ]
       }
@@ -2370,7 +2370,7 @@
       "icon": "1104_Minionmancer_large.png",
       "sourceIcon": "minionmancer_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -2388,11 +2388,11 @@
           },
           {
             "champion_id": "950",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "1",
-            "tier": 3
+            "tier": 2
           }
         ]
       }
@@ -2410,7 +2410,7 @@
       "icon": "1105_Homeguard_large.png",
       "sourceIcon": "homeguard_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -2431,7 +2431,7 @@
             "tier": 1
           },
           {
-            "champion_id": "161",
+            "champion_id": "800",
             "tier": 1
           }
         ]
@@ -2450,7 +2450,7 @@
       "icon": "1112_Ultimate_Unstoppable_large.png",
       "sourceIcon": "ultimateunstoppable_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -2464,7 +2464,7 @@
           },
           {
             "champion_id": "9",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "85",
@@ -2472,7 +2472,7 @@
           },
           {
             "champion_id": "38",
-            "tier": 3
+            "tier": 2
           }
         ]
       }
@@ -2490,7 +2490,7 @@
       "icon": "1113_Skilled_Sniper_large.png",
       "sourceIcon": "skilledsniper_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -2507,11 +2507,11 @@
             "tier": 1
           },
           {
-            "champion_id": "76",
-            "tier": 2
+            "champion_id": "25",
+            "tier": 1
           },
           {
-            "champion_id": "115",
+            "champion_id": "76",
             "tier": 2
           }
         ]
@@ -2530,7 +2530,7 @@
       "icon": "1115_Scopiest_Weapons_large.png",
       "sourceIcon": "scopiestweapons_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -2540,7 +2540,7 @@
           },
           {
             "champion_id": "51",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "523",
@@ -2551,8 +2551,8 @@
             "tier": 1
           },
           {
-            "champion_id": "119",
-            "tier": 1
+            "champion_id": "203",
+            "tier": 2
           }
         ]
       }
@@ -2568,17 +2568,17 @@
       "icon": "1116_Flashy_large.png",
       "sourceIcon": "flashy_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
           {
             "champion_id": "85",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "64",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "518",
@@ -2589,8 +2589,8 @@
             "tier": 2
           },
           {
-            "champion_id": "9",
-            "tier": 2
+            "champion_id": "91",
+            "tier": 3
           }
         ]
       }
@@ -2609,13 +2609,13 @@
       "icon": "1118_Critical_Healing_large.png",
       "sourceIcon": "criticalhealing_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
           {
             "champion_id": "350",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "37",
@@ -2649,16 +2649,12 @@
       "icon": "1129_Marksmage_large.png",
       "sourceIcon": "marksmage_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 3,
+        "tier": 2,
         "top_champions": [
           {
             "champion_id": "10",
-            "tier": 1
-          },
-          {
-            "champion_id": "887",
             "tier": 1
           },
           {
@@ -2666,11 +2662,15 @@
             "tier": 1
           },
           {
+            "champion_id": "887",
+            "tier": 1
+          },
+          {
             "champion_id": "268",
             "tier": 1
           },
           {
-            "champion_id": "517",
+            "champion_id": "805",
             "tier": 1
           }
         ]
@@ -2690,9 +2690,9 @@
       "icon": "1133_Magic_Missile_large.png",
       "sourceIcon": "magicmissile_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 2,
+        "tier": 1,
         "top_champions": [
           {
             "champion_id": "101",
@@ -2711,8 +2711,8 @@
             "tier": 1
           },
           {
-            "champion_id": "63",
-            "tier": 1
+            "champion_id": "163",
+            "tier": 2
           }
         ]
       }
@@ -2734,7 +2734,7 @@
       "icon": "1134_Draw_Your_Sword_large.png",
       "sourceIcon": "drawyoursword_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -2747,11 +2747,11 @@
             "tier": 1
           },
           {
-            "champion_id": "6",
+            "champion_id": "42",
             "tier": 1
           },
           {
-            "champion_id": "42",
+            "champion_id": "6",
             "tier": 1
           },
           {
@@ -2772,24 +2772,24 @@
       "icon": "1136_Slap_Around_large.png",
       "sourceIcon": "slaparound_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
-          {
-            "champion_id": "526",
-            "tier": 3
-          },
           {
             "champion_id": "57",
             "tier": 2
           },
           {
-            "champion_id": "12",
-            "tier": 2
+            "champion_id": "526",
+            "tier": 3
           },
           {
             "champion_id": "89",
+            "tier": 2
+          },
+          {
+            "champion_id": "12",
             "tier": 2
           },
           {
@@ -2812,7 +2812,7 @@
       "icon": "1138_Goredrink_large.png",
       "sourceIcon": "goredrink_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -2829,11 +2829,11 @@
             "tier": 2
           },
           {
-            "champion_id": "517",
+            "champion_id": "19",
             "tier": 2
           },
           {
-            "champion_id": "141",
+            "champion_id": "517",
             "tier": 2
           }
         ]
@@ -2850,7 +2850,7 @@
       "icon": "1141_All_For_You_large.png",
       "sourceIcon": "allforyou_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -2888,12 +2888,16 @@
       "icon": "1149_Impassable_large.png",
       "sourceIcon": "impassable_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "33",
+            "tier": 1
+          },
+          {
+            "champion_id": "111",
             "tier": 2
           },
           {
@@ -2901,16 +2905,12 @@
             "tier": 2
           },
           {
-            "champion_id": "111",
-            "tier": 2
-          },
-          {
-            "champion_id": "201",
-            "tier": 3
-          },
-          {
             "champion_id": "412",
             "tier": 2
+          },
+          {
+            "champion_id": "526",
+            "tier": 3
           }
         ]
       }
@@ -2928,7 +2928,7 @@
       "icon": "1150_Bread_And_Jam_large.png",
       "sourceIcon": "genericabilityaugmenticon_gold.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -2938,19 +2938,19 @@
           },
           {
             "champion_id": "246",
-            "tier": 4
+            "tier": 3
           },
           {
             "champion_id": "7",
-            "tier": 4
+            "tier": 3
           },
           {
             "champion_id": "267",
-            "tier": 1
+            "tier": 2
           },
           {
-            "champion_id": "238",
-            "tier": 3
+            "champion_id": "37",
+            "tier": 1
           }
         ]
       }
@@ -2968,7 +2968,7 @@
       "icon": "1151_Bread_and_Cheese_large.png",
       "sourceIcon": "genericabilityaugmenticon_gold.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -2981,12 +2981,12 @@
             "tier": 2
           },
           {
-            "champion_id": "112",
-            "tier": 3
-          },
-          {
             "champion_id": "350",
             "tier": 1
+          },
+          {
+            "champion_id": "112",
+            "tier": 3
           },
           {
             "champion_id": "134",
@@ -3008,20 +3008,20 @@
       "icon": "1152_Steel_Your_Heart_large.png",
       "sourceIcon": "quest_steelyourheart_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 2,
+        "tier": 1,
         "top_champions": [
+          {
+            "champion_id": "526",
+            "tier": 1
+          },
           {
             "champion_id": "516",
             "tier": 1
           },
           {
             "champion_id": "89",
-            "tier": 1
-          },
-          {
-            "champion_id": "526",
             "tier": 1
           },
           {
@@ -3048,7 +3048,7 @@
       "icon": "1154_Urfs_Champion_large.png",
       "sourceIcon": "quest_urfschampion_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -3057,19 +3057,19 @@
             "tier": 1
           },
           {
-            "champion_id": "234",
-            "tier": 2
+            "champion_id": "42",
+            "tier": 1
           },
           {
             "champion_id": "126",
             "tier": 2
           },
           {
-            "champion_id": "42",
-            "tier": 1
+            "champion_id": "234",
+            "tier": 2
           },
           {
-            "champion_id": "119",
+            "champion_id": "41",
             "tier": 2
           }
         ]
@@ -3088,7 +3088,7 @@
       "icon": "1156_Wooglets_Witchcap_large.png",
       "sourceIcon": "quest_woogletswitchcap_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -3097,11 +3097,11 @@
             "tier": 1
           },
           {
-            "champion_id": "101",
-            "tier": 2
+            "champion_id": "112",
+            "tier": 1
           },
           {
-            "champion_id": "112",
+            "champion_id": "101",
             "tier": 1
           },
           {
@@ -3128,24 +3128,24 @@
       "icon": "1170_Scoped_Weapons_large.png",
       "sourceIcon": "scopedweapons_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
           {
-            "champion_id": "10",
+            "champion_id": "222",
             "tier": 2
           },
           {
-            "champion_id": "222",
-            "tier": 2
+            "champion_id": "10",
+            "tier": 3
           },
           {
             "champion_id": "51",
             "tier": 2
           },
           {
-            "champion_id": "523",
+            "champion_id": "804",
             "tier": 3
           },
           {
@@ -3168,9 +3168,9 @@
       "icon": "1180_Big_Brain_large.png",
       "sourceIcon": "bigbrain_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 3,
+        "tier": 2,
         "top_champions": [
           {
             "champion_id": "45",
@@ -3181,15 +3181,15 @@
             "tier": 1
           },
           {
+            "champion_id": "13",
+            "tier": 1
+          },
+          {
             "champion_id": "7",
             "tier": 1
           },
           {
             "champion_id": "61",
-            "tier": 1
-          },
-          {
-            "champion_id": "13",
             "tier": 1
           }
         ]
@@ -3209,9 +3209,9 @@
       "icon": "1181_Heavy_Hitter_large.png",
       "sourceIcon": "heavyhitter_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 2,
+        "tier": 1,
         "top_champions": [
           {
             "champion_id": "516",
@@ -3230,7 +3230,7 @@
             "tier": 1
           },
           {
-            "champion_id": "89",
+            "champion_id": "6",
             "tier": 1
           }
         ]
@@ -3247,20 +3247,16 @@
       "icon": "1187_Flashbang_large.png",
       "sourceIcon": "flashbang_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "85",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "518",
-            "tier": 5
-          },
-          {
-            "champion_id": "555",
             "tier": 5
           },
           {
@@ -3268,8 +3264,12 @@
             "tier": 5
           },
           {
-            "champion_id": "53",
+            "champion_id": "127",
             "tier": 1
+          },
+          {
+            "champion_id": "555",
+            "tier": 3
           }
         ]
       }
@@ -3285,9 +3285,9 @@
       "icon": "1194_Fey_Magic_large.png",
       "sourceIcon": "feymagic_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "34",
@@ -3298,16 +3298,16 @@
             "tier": 1
           },
           {
-            "champion_id": "85",
-            "tier": 2
+            "champion_id": "350",
+            "tier": 1
           },
           {
             "champion_id": "9",
             "tier": 2
           },
           {
-            "champion_id": "350",
-            "tier": 1
+            "champion_id": "85",
+            "tier": 3
           }
         ]
       }
@@ -3326,7 +3326,7 @@
       "icon": "1195_Giant_Slayer_large.png",
       "sourceIcon": "giantslayer_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -3343,11 +3343,11 @@
             "tier": 1
           },
           {
-            "champion_id": "876",
+            "champion_id": "133",
             "tier": 1
           },
           {
-            "champion_id": "133",
+            "champion_id": "876",
             "tier": 1
           }
         ]
@@ -3364,7 +3364,7 @@
       "icon": "1204_Stackosaurus_Rex_large.png",
       "sourceIcon": "stackosaurusrex_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -3402,7 +3402,7 @@
       "icon": "1205_ADAPt_large.png",
       "sourceIcon": "adapt_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -3411,16 +3411,16 @@
             "tier": 1
           },
           {
+            "champion_id": "45",
+            "tier": 2
+          },
+          {
             "champion_id": "134",
             "tier": 2
           },
           {
             "champion_id": "30",
-            "tier": 4
-          },
-          {
-            "champion_id": "112",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "38",
@@ -3440,7 +3440,7 @@
       "icon": "1206_escAPADe_large.png",
       "sourceIcon": "escapade_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -3457,12 +3457,12 @@
             "tier": 1
           },
           {
-            "champion_id": "81",
-            "tier": 2
+            "champion_id": "121",
+            "tier": 1
           },
           {
-            "champion_id": "202",
-            "tier": 2
+            "champion_id": "104",
+            "tier": 1
           }
         ]
       }
@@ -3480,7 +3480,7 @@
       "icon": "1211_Its_Killing_Time_large.png",
       "sourceIcon": "itskillingtime_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -3489,11 +3489,11 @@
             "tier": 2
           },
           {
-            "champion_id": "9",
+            "champion_id": "85",
             "tier": 1
           },
           {
-            "champion_id": "85",
+            "champion_id": "9",
             "tier": 1
           },
           {
@@ -3521,7 +3521,7 @@
       "icon": "1214_Spin_To_Win_large.png",
       "sourceIcon": "spintowin_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -3539,7 +3539,7 @@
           },
           {
             "champion_id": "86",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "876",
@@ -3562,7 +3562,7 @@
       "icon": "1220_Fan_The_Hammer_large.png",
       "sourceIcon": "fanthehammer_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -3604,9 +3604,9 @@
       "icon": "1225_Dual_Wield_large.png",
       "sourceIcon": "dualwield_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 2,
+        "tier": 1,
         "top_champions": [
           {
             "champion_id": "166",
@@ -3644,29 +3644,29 @@
       "icon": "1237_Transmute_Gold_large.png",
       "sourceIcon": "transmutegold_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
           {
             "champion_id": "516",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "26",
             "tier": 3
           },
           {
-            "champion_id": "163",
-            "tier": 4
-          },
-          {
-            "champion_id": "910",
+            "champion_id": "223",
             "tier": 2
           },
           {
-            "champion_id": "1",
-            "tier": 2
+            "champion_id": "112",
+            "tier": 3
+          },
+          {
+            "champion_id": "101",
+            "tier": 3
           }
         ]
       }
@@ -3682,7 +3682,7 @@
       "icon": "1238_Transmute_Prismatic_large.png",
       "sourceIcon": "transmuteprismatic_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
@@ -3720,20 +3720,16 @@
       "icon": "1243_Transmute_Chaos_large.png",
       "sourceIcon": "transmutechaos_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
           {
             "champion_id": "126",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "41",
-            "tier": 2
-          },
-          {
-            "champion_id": "136",
             "tier": 2
           },
           {
@@ -3741,8 +3737,12 @@
             "tier": 3
           },
           {
-            "champion_id": "142",
+            "champion_id": "136",
             "tier": 2
+          },
+          {
+            "champion_id": "202",
+            "tier": 3
           }
         ]
       }
@@ -3758,7 +3758,7 @@
       "icon": "1301_Divine_Intervention_large.png",
       "sourceIcon": "slowactingpainkillers_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -3767,15 +3767,15 @@
             "tier": 1
           },
           {
-            "champion_id": "44",
-            "tier": 2
-          },
-          {
             "champion_id": "117",
             "tier": 2
           },
           {
             "champion_id": "888",
+            "tier": 2
+          },
+          {
+            "champion_id": "44",
             "tier": 3
           },
           {
@@ -3799,9 +3799,9 @@
       "icon": "1305_Leg_Day_large.png",
       "sourceIcon": "legday_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 3,
+        "tier": 2,
         "top_champions": [
           {
             "champion_id": "27",
@@ -3812,16 +3812,16 @@
             "tier": 2
           },
           {
+            "champion_id": "122",
+            "tier": 1
+          },
+          {
             "champion_id": "53",
             "tier": 1
           },
           {
             "champion_id": "876",
             "tier": 2
-          },
-          {
-            "champion_id": "122",
-            "tier": 1
           }
         ]
       }
@@ -3841,7 +3841,7 @@
       "icon": "1308_FireFox_large.png",
       "sourceIcon": "firfox_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -3854,16 +3854,16 @@
             "tier": 1
           },
           {
+            "champion_id": "61",
+            "tier": 2
+          },
+          {
             "champion_id": "142",
             "tier": 1
           },
           {
-            "champion_id": "60",
+            "champion_id": "800",
             "tier": 1
-          },
-          {
-            "champion_id": "1",
-            "tier": 2
           }
         ]
       }
@@ -3881,7 +3881,7 @@
       "icon": "1310_Clown_College_large.png",
       "sourceIcon": "clowncollege_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -3890,15 +3890,15 @@
             "tier": 1
           },
           {
-            "champion_id": "35",
-            "tier": 1
-          },
-          {
             "champion_id": "107",
             "tier": 1
           },
           {
             "champion_id": "121",
+            "tier": 1
+          },
+          {
+            "champion_id": "35",
             "tier": 1
           },
           {
@@ -3919,7 +3919,7 @@
       "icon": "1311_Overflow_large.png",
       "sourceIcon": "overflow_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -3929,7 +3929,7 @@
           },
           {
             "champion_id": "38",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "37",
@@ -3937,7 +3937,7 @@
           },
           {
             "champion_id": "81",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "350",
@@ -3960,29 +3960,29 @@
       "icon": "1314_Mighty_Shield_large.png",
       "sourceIcon": "mightyshield_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
-          {
-            "champion_id": "43",
-            "tier": 3
-          },
           {
             "champion_id": "131",
             "tier": 3
           },
           {
-            "champion_id": "98",
-            "tier": 3
-          },
-          {
-            "champion_id": "68",
+            "champion_id": "43",
             "tier": 3
           },
           {
             "champion_id": "92",
-            "tier": 3
+            "tier": 2
+          },
+          {
+            "champion_id": "1",
+            "tier": 4
+          },
+          {
+            "champion_id": "98",
+            "tier": 4
           }
         ]
       }
@@ -4001,18 +4001,10 @@
       "icon": "1315_Swift_and_Safe_large.png",
       "sourceIcon": "swiftandsafe_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
-          {
-            "champion_id": "38",
-            "tier": 1
-          },
-          {
-            "champion_id": "7",
-            "tier": 1
-          },
           {
             "champion_id": "799",
             "tier": 1
@@ -4022,7 +4014,15 @@
             "tier": 1
           },
           {
-            "champion_id": "92",
+            "champion_id": "38",
+            "tier": 1
+          },
+          {
+            "champion_id": "7",
+            "tier": 1
+          },
+          {
+            "champion_id": "39",
             "tier": 1
           }
         ]
@@ -4043,13 +4043,13 @@
       "icon": "1318_Upgrade_Zhonyas_large.png",
       "sourceIcon": "upgradezh_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "85",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "9",
@@ -4057,7 +4057,7 @@
           },
           {
             "champion_id": "127",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "25",
@@ -4083,16 +4083,20 @@
       "icon": "1319_Upgrade_Immolate_large.png",
       "sourceIcon": "upgradeimmolate_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
+          {
+            "champion_id": "516",
+            "tier": 1
+          },
           {
             "champion_id": "33",
             "tier": 1
           },
           {
-            "champion_id": "516",
+            "champion_id": "32",
             "tier": 1
           },
           {
@@ -4100,11 +4104,7 @@
             "tier": 1
           },
           {
-            "champion_id": "526",
-            "tier": 1
-          },
-          {
-            "champion_id": "32",
+            "champion_id": "98",
             "tier": 1
           }
         ]
@@ -4123,7 +4123,7 @@
       "icon": "1320_Upgrade_Collector_large.png",
       "sourceIcon": "upgradecollector_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -4136,16 +4136,16 @@
             "tier": 2
           },
           {
+            "champion_id": "950",
+            "tier": 3
+          },
+          {
             "champion_id": "41",
             "tier": 2
           },
           {
             "champion_id": "104",
             "tier": 2
-          },
-          {
-            "champion_id": "950",
-            "tier": 3
           }
         ]
       }
@@ -4164,7 +4164,7 @@
       "icon": "1322_Get_Excited_large.png",
       "sourceIcon": "getexcited_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -4173,20 +4173,20 @@
             "tier": 2
           },
           {
+            "champion_id": "429",
+            "tier": 2
+          },
+          {
             "champion_id": "2",
             "tier": 2
           },
           {
-            "champion_id": "429",
+            "champion_id": "10",
             "tier": 3
           },
           {
-            "champion_id": "221",
+            "champion_id": "523",
             "tier": 2
-          },
-          {
-            "champion_id": "11",
-            "tier": 3
           }
         ]
       }
@@ -4205,7 +4205,7 @@
       "icon": "1323_Cruelty_large.png",
       "sourceIcon": "cruelty_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -4214,11 +4214,11 @@
             "tier": 1
           },
           {
-            "champion_id": "89",
+            "champion_id": "12",
             "tier": 1
           },
           {
-            "champion_id": "12",
+            "champion_id": "89",
             "tier": 1
           },
           {
@@ -4246,7 +4246,7 @@
       "icon": "1324_Protein_Shake_large.png",
       "sourceIcon": "proteinshake_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -4267,8 +4267,8 @@
             "tier": 3
           },
           {
-            "champion_id": "350",
-            "tier": 2
+            "champion_id": "117",
+            "tier": 1
           }
         ]
       }
@@ -4287,7 +4287,7 @@
       "icon": "1325_Glass_Cannon_large.png",
       "sourceIcon": "glasscannon_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -4297,7 +4297,7 @@
           },
           {
             "champion_id": "76",
-            "tier": 3
+            "tier": 4
           },
           {
             "champion_id": "126",
@@ -4328,7 +4328,7 @@
       "icon": "1326_Nightstalking_large.png",
       "sourceIcon": "nightstalking_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -4386,7 +4386,7 @@
       "icon": "1328_Critical_Rhythm_large.png",
       "sourceIcon": "criticalrhythm_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -4403,12 +4403,12 @@
             "tier": 1
           },
           {
-            "champion_id": "51",
+            "champion_id": "804",
             "tier": 1
           },
           {
-            "champion_id": "203",
-            "tier": 2
+            "champion_id": "523",
+            "tier": 1
           }
         ]
       }
@@ -4426,9 +4426,9 @@
       "icon": "1329_Biggest_Snowball_Ever_large.png",
       "sourceIcon": "biggestsnowballever_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "142",
@@ -4444,10 +4444,10 @@
           },
           {
             "champion_id": "20",
-            "tier": 4
+            "tier": 2
           },
           {
-            "champion_id": "412",
+            "champion_id": "711",
             "tier": 1
           }
         ]
@@ -4467,7 +4467,7 @@
       "icon": "1331_Empyrean_Promise_large.png",
       "sourceIcon": "empyreampromise_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -4485,7 +4485,7 @@
           },
           {
             "champion_id": "40",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "902",
@@ -4509,7 +4509,7 @@
       "icon": "1332_Ominous_Pact_large.png",
       "sourceIcon": "wisdomofages_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -4523,7 +4523,7 @@
           },
           {
             "champion_id": "887",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "876",
@@ -4550,20 +4550,16 @@
       "icon": "1333_Escape_Plan_large.png",
       "sourceIcon": "escapeplan_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 2,
+        "tier": 1,
         "top_champions": [
           {
             "champion_id": "27",
             "tier": 1
           },
           {
-            "champion_id": "113",
-            "tier": 1
-          },
-          {
-            "champion_id": "98",
+            "champion_id": "33",
             "tier": 1
           },
           {
@@ -4571,8 +4567,12 @@
             "tier": 1
           },
           {
-            "champion_id": "33",
+            "champion_id": "98",
             "tier": 1
+          },
+          {
+            "champion_id": "526",
+            "tier": 2
           }
         ]
       }
@@ -4608,7 +4608,7 @@
       "icon": "1335_Goldrend_large.png",
       "sourceIcon": "goldrend_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -4621,16 +4621,16 @@
             "tier": 3
           },
           {
-            "champion_id": "163",
-            "tier": 1
-          },
-          {
             "champion_id": "101",
             "tier": 1
           },
           {
             "champion_id": "136",
             "tier": 2
+          },
+          {
+            "champion_id": "115",
+            "tier": 1
           }
         ]
       }
@@ -4649,12 +4649,16 @@
       "icon": "1336_Upgrade_Infinity_Edge_large.png",
       "sourceIcon": "upgradeie_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 2,
+        "tier": 1,
         "top_champions": [
           {
             "champion_id": "202",
+            "tier": 2
+          },
+          {
+            "champion_id": "777",
             "tier": 1
           },
           {
@@ -4662,15 +4666,11 @@
             "tier": 1
           },
           {
-            "champion_id": "104",
-            "tier": 1
-          },
-          {
             "champion_id": "157",
             "tier": 1
           },
           {
-            "champion_id": "777",
+            "champion_id": "104",
             "tier": 1
           }
         ]
@@ -4687,7 +4687,7 @@
       "icon": "1337_King_Me_large.png",
       "sourceIcon": "kingme_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -4700,16 +4700,16 @@
             "tier": 2
           },
           {
-            "champion_id": "4",
-            "tier": 2
-          },
-          {
-            "champion_id": "41",
-            "tier": 2
+            "champion_id": "163",
+            "tier": 4
           },
           {
             "champion_id": "121",
             "tier": 2
+          },
+          {
+            "champion_id": "4",
+            "tier": 3
           }
         ]
       }
@@ -4778,9 +4778,9 @@
       "icon": "1344_Final_Form_large.png",
       "sourceIcon": "finalform_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 3,
+        "tier": 2,
         "top_champions": [
           {
             "champion_id": "360",
@@ -4791,11 +4791,11 @@
             "tier": 1
           },
           {
-            "champion_id": "2",
+            "champion_id": "38",
             "tier": 1
           },
           {
-            "champion_id": "38",
+            "champion_id": "2",
             "tier": 1
           },
           {
@@ -4818,29 +4818,29 @@
       "icon": "1345_Spiritual_Purification_large.png",
       "sourceIcon": "spiritualpurification_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "127",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "555",
-            "tier": 3
+            "tier": 4
           },
           {
             "champion_id": "55",
             "tier": 3
           },
           {
-            "champion_id": "28",
-            "tier": 3
+            "champion_id": "9",
+            "tier": 2
           },
           {
-            "champion_id": "121",
-            "tier": 4
+            "champion_id": "85",
+            "tier": 2
           }
         ]
       }
@@ -4873,29 +4873,29 @@
       "icon": "1347_Poltergeist_large.png",
       "sourceIcon": "poltergeist_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
-            "champion_id": "27",
+            "champion_id": "221",
             "tier": 2
+          },
+          {
+            "champion_id": "27",
+            "tier": 4
           },
           {
             "champion_id": "122",
-            "tier": 2
-          },
-          {
-            "champion_id": "221",
-            "tier": 4
+            "tier": 5
           },
           {
             "champion_id": "2",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "202",
-            "tier": 4
+            "tier": 3
           }
         ]
       }
@@ -4911,17 +4911,17 @@
       "icon": "1348_Flash_2_large.png",
       "sourceIcon": "flash2_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "85",
-            "tier": 1
+            "tier": 2
           },
           {
-            "champion_id": "64",
-            "tier": 2
+            "champion_id": "555",
+            "tier": 3
           },
           {
             "champion_id": "53",
@@ -4929,10 +4929,10 @@
           },
           {
             "champion_id": "518",
-            "tier": 5
+            "tier": 4
           },
           {
-            "champion_id": "555",
+            "champion_id": "64",
             "tier": 5
           }
         ]
@@ -4951,9 +4951,9 @@
       "icon": "1349_Ultimate_Awakening_large.png",
       "sourceIcon": "zerohour_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "43",
@@ -4965,15 +4965,15 @@
           },
           {
             "champion_id": "99",
-            "tier": 4
+            "tier": 3
           },
           {
             "champion_id": "888",
             "tier": 3
           },
           {
-            "champion_id": "91",
-            "tier": 4
+            "champion_id": "61",
+            "tier": 2
           }
         ]
       }
@@ -4991,16 +4991,16 @@
       "icon": "1353_Tank_Engine_large.png",
       "sourceIcon": "tank_engine_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
           {
-            "champion_id": "223",
+            "champion_id": "36",
             "tier": 1
           },
           {
-            "champion_id": "36",
+            "champion_id": "223",
             "tier": 1
           },
           {
@@ -5032,16 +5032,16 @@
       "icon": "1356_Critical_Missile_large.png",
       "sourceIcon": "criticalmissile_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
           {
-            "champion_id": "166",
+            "champion_id": "804",
             "tier": 1
           },
           {
-            "champion_id": "804",
+            "champion_id": "166",
             "tier": 1
           },
           {
@@ -5073,17 +5073,21 @@
       "icon": "1358_Pinball_large.png",
       "sourceIcon": "pinballsnowball_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
+          {
+            "champion_id": "142",
+            "tier": 1
+          },
           {
             "champion_id": "518",
             "tier": 3
           },
           {
-            "champion_id": "142",
-            "tier": 1
+            "champion_id": "127",
+            "tier": 2
           },
           {
             "champion_id": "555",
@@ -5091,10 +5095,6 @@
           },
           {
             "champion_id": "85",
-            "tier": 2
-          },
-          {
-            "champion_id": "127",
             "tier": 3
           }
         ]
@@ -5113,7 +5113,7 @@
       "icon": "1361_Icathias_Fall_large.png",
       "sourceIcon": "quest_voidimmolation_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -5122,11 +5122,11 @@
             "tier": 1
           },
           {
-            "champion_id": "33",
+            "champion_id": "89",
             "tier": 1
           },
           {
-            "champion_id": "89",
+            "champion_id": "33",
             "tier": 1
           },
           {
@@ -5172,7 +5172,7 @@
       "icon": "1373_Shrink_Engine_large.png",
       "sourceIcon": "shrinkengine_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
@@ -5212,9 +5212,9 @@
       "icon": "1375_Soul_Eater_large.png",
       "sourceIcon": "souleater_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "89",
@@ -5222,7 +5222,7 @@
           },
           {
             "champion_id": "526",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "111",
@@ -5254,29 +5254,29 @@
       "icon": "1379_Upgrade_Sword_of_Blossoming_Dawn_large.png",
       "sourceIcon": "upgrademikaelsblessing_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
-          {
-            "champion_id": "427",
-            "tier": 2
-          },
           {
             "champion_id": "235",
             "tier": 1
           },
           {
             "champion_id": "117",
+            "tier": 2
+          },
+          {
+            "champion_id": "427",
             "tier": 3
           },
           {
             "champion_id": "44",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "432",
-            "tier": 2
+            "tier": 1
           }
         ]
       }
@@ -5294,13 +5294,13 @@
       "icon": "1384_Donation_large.png",
       "sourceIcon": "donation_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 3,
+        "tier": 2,
         "top_champions": [
           {
             "champion_id": "119",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "91",
@@ -5308,15 +5308,15 @@
           },
           {
             "champion_id": "238",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "121",
-            "tier": 2
+            "tier": 1
           },
           {
-            "champion_id": "30",
-            "tier": 2
+            "champion_id": "164",
+            "tier": 1
           }
         ]
       }
@@ -5332,29 +5332,29 @@
       "icon": "1386_Spin_Me_Right_Round_large.png",
       "sourceIcon": "youspinmerightround_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "6",
-            "tier": 2
+            "tier": 4
           },
           {
             "champion_id": "53",
             "tier": 5
           },
           {
+            "champion_id": "412",
+            "tier": 2
+          },
+          {
+            "champion_id": "72",
+            "tier": 5
+          },
+          {
             "champion_id": "223",
             "tier": 3
-          },
-          {
-            "champion_id": "412",
-            "tier": 3
-          },
-          {
-            "champion_id": "33",
-            "tier": 5
           }
         ]
       }
@@ -5372,9 +5372,9 @@
       "icon": "1388_Infinite_Recursion_large.png",
       "sourceIcon": "infiniterecursion_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 2,
+        "tier": 1,
         "top_champions": [
           {
             "champion_id": "26",
@@ -5393,7 +5393,7 @@
             "tier": 1
           },
           {
-            "champion_id": "115",
+            "champion_id": "112",
             "tier": 1
           }
         ]
@@ -5410,7 +5410,7 @@
       "icon": "1389_Hand_of_Baron_large.png",
       "sourceIcon": "handofbaron_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -5419,7 +5419,7 @@
             "tier": 1
           },
           {
-            "champion_id": "74",
+            "champion_id": "112",
             "tier": 1
           },
           {
@@ -5427,11 +5427,11 @@
             "tier": 1
           },
           {
-            "champion_id": "136",
+            "champion_id": "74",
             "tier": 1
           },
           {
-            "champion_id": "26",
+            "champion_id": "136",
             "tier": 1
           }
         ]
@@ -5448,7 +5448,7 @@
       "icon": "1390_Phenomenal_Evil_large.png",
       "sourceIcon": "aram_phenomenalevil_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
@@ -5469,7 +5469,7 @@
             "tier": 1
           },
           {
-            "champion_id": "876",
+            "champion_id": "90",
             "tier": 1
           }
         ]
@@ -5489,28 +5489,28 @@
       "icon": "1392_Holy_Snowball_large.png",
       "sourceIcon": "goldensnowball_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "142",
-            "tier": 2
+            "tier": 3
+          },
+          {
+            "champion_id": "64",
+            "tier": 3
+          },
+          {
+            "champion_id": "555",
+            "tier": 3
           },
           {
             "champion_id": "518",
             "tier": 4
           },
           {
-            "champion_id": "64",
-            "tier": 4
-          },
-          {
             "champion_id": "85",
-            "tier": 3
-          },
-          {
-            "champion_id": "555",
             "tier": 4
           }
         ]
@@ -5545,7 +5545,7 @@
       "icon": "1401_Growth_Spurt_large.png",
       "sourceIcon": "growthspurt_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -5562,7 +5562,7 @@
             "tier": 1
           },
           {
-            "champion_id": "14",
+            "champion_id": "72",
             "tier": 1
           },
           {
@@ -5585,13 +5585,17 @@
       "icon": "1402_Stats_on_Stats_on_Stats_large.png",
       "sourceIcon": "statsonstatsonstats_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
           {
             "champion_id": "41",
-            "tier": 3
+            "tier": 2
+          },
+          {
+            "champion_id": "202",
+            "tier": 2
           },
           {
             "champion_id": "126",
@@ -5599,15 +5603,11 @@
           },
           {
             "champion_id": "136",
-            "tier": 2
-          },
-          {
-            "champion_id": "202",
             "tier": 3
           },
           {
             "champion_id": "163",
-            "tier": 4
+            "tier": 3
           }
         ]
       }
@@ -5625,17 +5625,13 @@
       "icon": "1403_Stats_on_Stats_large.png",
       "sourceIcon": "statsonstats_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
           {
-            "champion_id": "799",
-            "tier": 2
-          },
-          {
-            "champion_id": "238",
-            "tier": 2
+            "champion_id": "121",
+            "tier": 1
           },
           {
             "champion_id": "91",
@@ -5643,11 +5639,15 @@
           },
           {
             "champion_id": "30",
-            "tier": 3
+            "tier": 2
           },
           {
-            "champion_id": "121",
-            "tier": 2
+            "champion_id": "141",
+            "tier": 1
+          },
+          {
+            "champion_id": "164",
+            "tier": 1
           }
         ]
       }
@@ -5663,29 +5663,29 @@
       "icon": "1404_Stats_large.png",
       "sourceIcon": "stats_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "516",
-            "tier": 3
+            "tier": 4
           },
           {
-            "champion_id": "1",
-            "tier": 1
-          },
-          {
-            "champion_id": "33",
-            "tier": 3
-          },
-          {
-            "champion_id": "800",
-            "tier": 1
+            "champion_id": "99",
+            "tier": 4
           },
           {
             "champion_id": "30",
             "tier": 3
+          },
+          {
+            "champion_id": "16",
+            "tier": 2
+          },
+          {
+            "champion_id": "26",
+            "tier": 4
           }
         ]
       }
@@ -5737,13 +5737,13 @@
       "icon": "1413_Stuck_In_Here_With_Me_large.png",
       "sourceIcon": "stuckinherewithme_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "33",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "9",
@@ -5754,11 +5754,11 @@
             "tier": 4
           },
           {
-            "champion_id": "526",
-            "tier": 2
+            "champion_id": "420",
+            "tier": 1
           },
           {
-            "champion_id": "420",
+            "champion_id": "526",
             "tier": 2
           }
         ]
@@ -5795,17 +5795,17 @@
       "icon": "1415_Twin_Fire_large.png",
       "sourceIcon": "twinfire_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 2,
+        "tier": 1,
         "top_champions": [
           {
             "champion_id": "74",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "115",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "143",
@@ -5813,7 +5813,7 @@
           },
           {
             "champion_id": "101",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "901",
@@ -5836,9 +5836,9 @@
       "icon": "1416_Hextech_Soul_large.png",
       "sourceIcon": "infernalsoul_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "101",
@@ -5849,16 +5849,16 @@
             "tier": 1
           },
           {
-            "champion_id": "161",
+            "champion_id": "115",
             "tier": 2
           },
           {
-            "champion_id": "115",
-            "tier": 1
+            "champion_id": "161",
+            "tier": 3
           },
           {
             "champion_id": "99",
-            "tier": 2
+            "tier": 3
           }
         ]
       }
@@ -5876,7 +5876,7 @@
       "icon": "1420_Sonata_large.png",
       "sourceIcon": "sonata_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -5897,7 +5897,7 @@
             "tier": 1
           },
           {
-            "champion_id": "888",
+            "champion_id": "40",
             "tier": 1
           }
         ]
@@ -5914,21 +5914,21 @@
       "icon": "1421_Prom_Queen_large.png",
       "sourceIcon": "promqueen_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "497",
-            "tier": 2
-          },
-          {
-            "champion_id": "201",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "27",
             "tier": 3
+          },
+          {
+            "champion_id": "201",
+            "tier": 1
           },
           {
             "champion_id": "33",
@@ -5971,7 +5971,7 @@
       "icon": "1996_Upgrade_Sheen_large.png",
       "sourceIcon": "upgradesheen_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -5992,7 +5992,7 @@
             "tier": 1
           },
           {
-            "champion_id": "5",
+            "champion_id": "114",
             "tier": 1
           }
         ]
@@ -6029,9 +6029,9 @@
       "icon": "2004_Empowered_By_The_Faithful_large.png",
       "sourceIcon": "empoweredbythefaithful_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "350",
@@ -6042,16 +6042,16 @@
             "tier": 1
           },
           {
-            "champion_id": "37",
-            "tier": 2
-          },
-          {
             "champion_id": "16",
             "tier": 2
           },
           {
-            "champion_id": "427",
-            "tier": 1
+            "champion_id": "37",
+            "tier": 2
+          },
+          {
+            "champion_id": "40",
+            "tier": 2
           }
         ]
       }
@@ -6067,29 +6067,29 @@
       "icon": "2005_Triggered_Inferno_large.png",
       "sourceIcon": "madscientist_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
-          {
-            "champion_id": "360",
-            "tier": 3
-          },
           {
             "champion_id": "799",
             "tier": 2
+          },
+          {
+            "champion_id": "360",
+            "tier": 4
           },
           {
             "champion_id": "120",
             "tier": 1
           },
           {
-            "champion_id": "904",
-            "tier": 2
+            "champion_id": "895",
+            "tier": 4
           },
           {
-            "champion_id": "895",
-            "tier": 3
+            "champion_id": "64",
+            "tier": 2
           }
         ]
       }
@@ -6108,7 +6108,7 @@
       "icon": "2006_Dropkick_large.png",
       "sourceIcon": "dropkick_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -6129,8 +6129,8 @@
             "tier": 2
           },
           {
-            "champion_id": "78",
-            "tier": 1
+            "champion_id": "36",
+            "tier": 2
           }
         ]
       }
@@ -6167,7 +6167,7 @@
       "icon": "2009_Zealot_large.png",
       "sourceIcon": "zealot_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -6185,7 +6185,7 @@
           },
           {
             "champion_id": "432",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "145",
@@ -6208,9 +6208,9 @@
       "icon": "2010_Double_Tap_large.png",
       "sourceIcon": "dualwield_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "166",
@@ -6229,7 +6229,7 @@
             "tier": 2
           },
           {
-            "champion_id": "222",
+            "champion_id": "51",
             "tier": 3
           }
         ]
@@ -6249,7 +6249,7 @@
       "icon": "2016_Juiced_large.png",
       "sourceIcon": "juiced_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -6258,12 +6258,12 @@
             "tier": 2
           },
           {
-            "champion_id": "38",
+            "champion_id": "13",
             "tier": 3
           },
           {
-            "champion_id": "13",
-            "tier": 4
+            "champion_id": "38",
+            "tier": 3
           },
           {
             "champion_id": "42",
@@ -6271,7 +6271,7 @@
           },
           {
             "champion_id": "432",
-            "tier": 2
+            "tier": 4
           }
         ]
       }
@@ -6291,13 +6291,13 @@
       "icon": "2018_Purist_-_Caster_large.png",
       "sourceIcon": "puristcaster_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "26",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "126",
@@ -6332,7 +6332,7 @@
       "icon": "2024_Crit_n_Cast_large.png",
       "sourceIcon": "critncast_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -6353,8 +6353,8 @@
             "tier": 3
           },
           {
-            "champion_id": "23",
-            "tier": 2
+            "champion_id": "202",
+            "tier": 4
           }
         ]
       }
@@ -6373,7 +6373,7 @@
       "icon": "2026_Kill_Secured_large.png",
       "sourceIcon": "killsecure_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -6383,19 +6383,19 @@
           },
           {
             "champion_id": "28",
-            "tier": 3
-          },
-          {
-            "champion_id": "27",
             "tier": 2
           },
           {
             "champion_id": "19",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "122",
             "tier": 2
+          },
+          {
+            "champion_id": "27",
+            "tier": 3
           }
         ]
       }
@@ -6411,7 +6411,7 @@
       "icon": "2031_DropBear_large.png",
       "sourceIcon": "drop_bear.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -6424,11 +6424,11 @@
             "tier": 1
           },
           {
-            "champion_id": "77",
+            "champion_id": "20",
             "tier": 1
           },
           {
-            "champion_id": "20",
+            "champion_id": "77",
             "tier": 1
           },
           {
@@ -6449,9 +6449,9 @@
       "icon": "2032_Shark_Bait_large.png",
       "sourceIcon": "fishbait_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "20",
@@ -6459,7 +6459,7 @@
           },
           {
             "champion_id": "54",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "56",
@@ -6470,7 +6470,7 @@
             "tier": 1
           },
           {
-            "champion_id": "53",
+            "champion_id": "555",
             "tier": 1
           }
         ]
@@ -6487,7 +6487,7 @@
       "icon": "2034_Shark_Tempest_large.png",
       "sourceIcon": "sharktempest_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -6496,20 +6496,20 @@
             "tier": 1
           },
           {
-            "champion_id": "77",
-            "tier": 2
-          },
-          {
             "champion_id": "518",
-            "tier": 3
-          },
-          {
-            "champion_id": "555",
             "tier": 2
           },
           {
             "champion_id": "127",
             "tier": 2
+          },
+          {
+            "champion_id": "77",
+            "tier": 3
+          },
+          {
+            "champion_id": "105",
+            "tier": 3
           }
         ]
       }
@@ -6527,7 +6527,7 @@
       "icon": "2042_Hide_on_Bush_large.png",
       "sourceIcon": "brushpower_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -6541,15 +6541,15 @@
           },
           {
             "champion_id": "121",
-            "tier": 4
-          },
-          {
-            "champion_id": "35",
-            "tier": 5
+            "tier": 3
           },
           {
             "champion_id": "246",
-            "tier": 3
+            "tier": 5
+          },
+          {
+            "champion_id": "35",
+            "tier": 4
           }
         ]
       }
@@ -6568,28 +6568,28 @@
       "icon": "2043_Nature_is_Healing_large.png",
       "sourceIcon": "natureishealing_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "16",
-            "tier": 2
-          },
-          {
-            "champion_id": "201",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "421",
             "tier": 3
           },
           {
-            "champion_id": "27",
-            "tier": 2
+            "champion_id": "201",
+            "tier": 3
           },
           {
-            "champion_id": "33",
+            "champion_id": "72",
+            "tier": 3
+          },
+          {
+            "champion_id": "516",
             "tier": 2
           }
         ]
@@ -6608,29 +6608,29 @@
       "icon": "2046_Poro_Stampede_large.png",
       "sourceIcon": "questporocharge_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
-          {
-            "champion_id": "888",
-            "tier": 5
-          },
           {
             "champion_id": "427",
             "tier": 5
           },
           {
-            "champion_id": "40",
+            "champion_id": "888",
+            "tier": 5
+          },
+          {
+            "champion_id": "902",
+            "tier": 2
+          },
+          {
+            "champion_id": "432",
             "tier": 4
           },
           {
-            "champion_id": "163",
-            "tier": 3
-          },
-          {
-            "champion_id": "74",
-            "tier": 2
+            "champion_id": "201",
+            "tier": 4
           }
         ]
       }
@@ -6646,7 +6646,7 @@
       "icon": "2054_Tripleshot_large.png",
       "sourceIcon": "genericabilityaugmenticon_prismatic.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -6655,20 +6655,20 @@
             "tier": 1
           },
           {
+            "champion_id": "7",
+            "tier": 1
+          },
+          {
             "champion_id": "1",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "45",
-            "tier": 4
-          },
-          {
-            "champion_id": "7",
-            "tier": 2
-          },
-          {
-            "champion_id": "63",
             "tier": 3
+          },
+          {
+            "champion_id": "202",
+            "tier": 1
           }
         ]
       }
@@ -6686,7 +6686,7 @@
       "icon": "2055_Multishot_large.png",
       "sourceIcon": "genericabilityaugmenticon_prismatic.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -6724,9 +6724,9 @@
       "icon": "2062_Echo_Cast_large.png",
       "sourceIcon": "genericabilityaugmenticon_prismatic.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "4",
@@ -6738,11 +6738,11 @@
           },
           {
             "champion_id": "85",
-            "tier": 1
+            "tier": 3
           },
           {
             "champion_id": "32",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "131",
@@ -6762,7 +6762,7 @@
       "icon": "2063_Dimension_Shift_large.png",
       "sourceIcon": "whenthedarknesscomes_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -6772,18 +6772,18 @@
           },
           {
             "champion_id": "432",
-            "tier": 4
+            "tier": 5
           },
           {
             "champion_id": "350",
-            "tier": 4
+            "tier": 5
           },
           {
             "champion_id": "427",
             "tier": 5
           },
           {
-            "champion_id": "240",
+            "champion_id": "888",
             "tier": 5
           }
         ]
@@ -6802,21 +6802,21 @@
       "icon": "2064_Quickstep_large.png",
       "sourceIcon": "genericabilityaugmenticon_gold.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "122",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "85",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "120",
-            "tier": 4
+            "tier": 3
           },
           {
             "champion_id": "86",
@@ -6840,13 +6840,13 @@
       "icon": "2065_Terror_large.png",
       "sourceIcon": "desecrator_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "58",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "2",
@@ -6881,7 +6881,7 @@
       "icon": "2072_Spell_Split_large.png",
       "sourceIcon": "genericabilityaugmenticon_prismatic.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -6919,9 +6919,9 @@
       "icon": "2073_Siphon_large.png",
       "sourceIcon": "genericabilityaugmenticon_silver.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "69",
@@ -6959,7 +6959,7 @@
       "icon": "2076_Stay_Resolute_large.png",
       "sourceIcon": "genericabilityaugmenticon_silver.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -6968,11 +6968,11 @@
             "tier": 2
           },
           {
-            "champion_id": "12",
+            "champion_id": "32",
             "tier": 1
           },
           {
-            "champion_id": "32",
+            "champion_id": "12",
             "tier": 1
           },
           {
@@ -6997,7 +6997,7 @@
       "icon": "2077_Ravenous_Bind_large.png",
       "sourceIcon": "upgradehubris_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -7010,15 +7010,15 @@
             "tier": 1
           },
           {
-            "champion_id": "20",
-            "tier": 2
-          },
-          {
             "champion_id": "497",
             "tier": 1
           },
           {
-            "champion_id": "80",
+            "champion_id": "20",
+            "tier": 2
+          },
+          {
+            "champion_id": "50",
             "tier": 1
           }
         ]
@@ -7037,7 +7037,7 @@
       "icon": "2078_Chain_Reaction_large.png",
       "sourceIcon": "genericabilityaugmenticon_gold.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -7047,7 +7047,7 @@
           },
           {
             "champion_id": "150",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "79",
@@ -7059,7 +7059,7 @@
           },
           {
             "champion_id": "64",
-            "tier": 3
+            "tier": 4
           }
         ]
       }
@@ -7077,29 +7077,29 @@
       "icon": "2080_Snowblast_large.png",
       "sourceIcon": "snowbomb_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
-            "champion_id": "164",
-            "tier": 4
+            "champion_id": "142",
+            "tier": 3
           },
           {
-            "champion_id": "157",
-            "tier": 4
+            "champion_id": "164",
+            "tier": 3
           },
           {
             "champion_id": "555",
             "tier": 4
           },
           {
-            "champion_id": "142",
-            "tier": 2
+            "champion_id": "201",
+            "tier": 4
           },
           {
-            "champion_id": "421",
-            "tier": 5
+            "champion_id": "157",
+            "tier": 4
           }
         ]
       }
@@ -7117,17 +7117,17 @@
       "icon": "2082_Our_Healing_large.png",
       "sourceIcon": "equillibrium_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
-            "champion_id": "44",
-            "tier": 3
-          },
-          {
             "champion_id": "902",
             "tier": 2
+          },
+          {
+            "champion_id": "44",
+            "tier": 3
           },
           {
             "champion_id": "36",
@@ -7138,8 +7138,8 @@
             "tier": 3
           },
           {
-            "champion_id": "19",
-            "tier": 4
+            "champion_id": "201",
+            "tier": 3
           }
         ]
       }
@@ -7155,7 +7155,7 @@
       "icon": "2083_Tooth_Fairy_large.png",
       "sourceIcon": "questburstingteeth_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -7195,7 +7195,7 @@
       "icon": "2087_Archmage_large.png",
       "sourceIcon": "eureka_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -7217,7 +7217,7 @@
           },
           {
             "champion_id": "99",
-            "tier": 2
+            "tier": 3
           }
         ]
       }
@@ -7236,28 +7236,28 @@
       "icon": "2088_Snowday_large.png",
       "sourceIcon": "snowday_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
-          {
-            "champion_id": "518",
-            "tier": 4
-          },
           {
             "champion_id": "142",
             "tier": 1
           },
           {
-            "champion_id": "127",
-            "tier": 2
-          },
-          {
-            "champion_id": "412",
+            "champion_id": "518",
             "tier": 3
           },
           {
-            "champion_id": "12",
+            "champion_id": "127",
+            "tier": 4
+          },
+          {
+            "champion_id": "85",
+            "tier": 3
+          },
+          {
+            "champion_id": "412",
             "tier": 3
           }
         ]
@@ -7276,9 +7276,9 @@
       "icon": "2089_Yowch_My_Coins_large.png",
       "sourceIcon": "youchmycoins_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "555",
@@ -7290,15 +7290,15 @@
           },
           {
             "champion_id": "888",
-            "tier": 3
+            "tier": 1
           },
           {
             "champion_id": "117",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "427",
-            "tier": 2
+            "tier": 1
           }
         ]
       }
@@ -7317,17 +7317,17 @@
       "icon": "2091_Endless_Decimation_large.png",
       "sourceIcon": "endlessdecimate_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
           {
-            "champion_id": "799",
-            "tier": 2
-          },
-          {
             "champion_id": "904",
             "tier": 1
+          },
+          {
+            "champion_id": "799",
+            "tier": 2
           },
           {
             "champion_id": "122",
@@ -7335,7 +7335,7 @@
           },
           {
             "champion_id": "164",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "240",
@@ -7355,13 +7355,13 @@
       "icon": "2095_High_Roller_large.png",
       "sourceIcon": "highroller_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 1,
+        "tier": 3,
         "top_champions": [
           {
             "champion_id": "136",
-            "tier": 1
+            "tier": 2
           },
           {
             "champion_id": "41",
@@ -7372,11 +7372,11 @@
             "tier": 1
           },
           {
-            "champion_id": "13",
+            "champion_id": "523",
             "tier": 1
           },
           {
-            "champion_id": "523",
+            "champion_id": "13",
             "tier": 1
           }
         ]
@@ -7397,7 +7397,7 @@
       "icon": "2096_Lil_Extra_Help_large.png",
       "sourceIcon": "genericabilityaugmenticon_gold.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -7406,19 +7406,19 @@
             "tier": 1
           },
           {
-            "champion_id": "96",
-            "tier": 1
-          },
-          {
             "champion_id": "498",
             "tier": 1
           },
           {
-            "champion_id": "29",
+            "champion_id": "96",
             "tier": 1
           },
           {
             "champion_id": "2",
+            "tier": 1
+          },
+          {
+            "champion_id": "29",
             "tier": 1
           }
         ]
@@ -7456,16 +7456,12 @@
       "icon": "2098_En_Passant_large.png",
       "sourceIcon": "dashing_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
           {
             "champion_id": "114",
-            "tier": 2
-          },
-          {
-            "champion_id": "164",
             "tier": 3
           },
           {
@@ -7477,7 +7473,11 @@
             "tier": 1
           },
           {
-            "champion_id": "240",
+            "champion_id": "164",
+            "tier": 3
+          },
+          {
+            "champion_id": "39",
             "tier": 1
           }
         ]
@@ -7497,24 +7497,24 @@
       "icon": "2099_Rite_of_Ascension_large.png",
       "sourceIcon": "glasscannon_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
-            "champion_id": "950",
-            "tier": 3
+            "champion_id": "555",
+            "tier": 2
           },
           {
             "champion_id": "91",
+            "tier": 3
+          },
+          {
+            "champion_id": "950",
             "tier": 4
           },
           {
             "champion_id": "121",
-            "tier": 2
-          },
-          {
-            "champion_id": "555",
             "tier": 2
           },
           {
@@ -7538,21 +7538,21 @@
       "icon": "2100_Pursuit_of_Haste_large.png",
       "sourceIcon": "genericabilityaugmenticon_gold.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 3,
+        "tier": 2,
         "top_champions": [
           {
             "champion_id": "26",
             "tier": 2
           },
           {
-            "champion_id": "45",
+            "champion_id": "114",
             "tier": 2
           },
           {
-            "champion_id": "114",
-            "tier": 1
+            "champion_id": "45",
+            "tier": 2
           },
           {
             "champion_id": "53",
@@ -7580,7 +7580,7 @@
       "icon": "2102_Pressure_Cooker_large.png",
       "sourceIcon": "questpressurecooker_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -7589,15 +7589,15 @@
             "tier": 1
           },
           {
-            "champion_id": "89",
-            "tier": 1
-          },
-          {
             "champion_id": "526",
             "tier": 1
           },
           {
             "champion_id": "516",
+            "tier": 1
+          },
+          {
+            "champion_id": "89",
             "tier": 1
           },
           {
@@ -7621,7 +7621,7 @@
       "icon": "2103_From_Downtown_large.png",
       "sourceIcon": "questbangbang_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -7634,11 +7634,11 @@
             "tier": 1
           },
           {
-            "champion_id": "147",
+            "champion_id": "910",
             "tier": 1
           },
           {
-            "champion_id": "910",
+            "champion_id": "147",
             "tier": 1
           },
           {
@@ -7662,7 +7662,7 @@
       "icon": "2104_Spirit_Bomb_large.png",
       "sourceIcon": "spiritbomb_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -7675,11 +7675,11 @@
             "tier": 1
           },
           {
-            "champion_id": "37",
+            "champion_id": "902",
             "tier": 1
           },
           {
-            "champion_id": "902",
+            "champion_id": "37",
             "tier": 1
           },
           {
@@ -7700,7 +7700,7 @@
       "icon": "2107_Hellbent_large.png",
       "sourceIcon": "hellbent_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -7718,11 +7718,11 @@
           },
           {
             "champion_id": "266",
-            "tier": 3
+            "tier": 4
           },
           {
             "champion_id": "240",
-            "tier": 3
+            "tier": 4
           }
         ]
       }
@@ -7772,7 +7772,7 @@
       "icon": "2111_BONK_large.png",
       "sourceIcon": "bonk_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -7785,11 +7785,11 @@
             "tier": 1
           },
           {
-            "champion_id": "24",
+            "champion_id": "67",
             "tier": 1
           },
           {
-            "champion_id": "67",
+            "champion_id": "24",
             "tier": 1
           },
           {
@@ -7810,29 +7810,29 @@
       "icon": "2115_Squishy_Slappy_Grab_large.png",
       "sourceIcon": "squishyslappygrab_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
-          {
-            "champion_id": "201",
-            "tier": 3
-          },
-          {
-            "champion_id": "14",
-            "tier": 2
-          },
           {
             "champion_id": "412",
             "tier": 2
           },
           {
-            "champion_id": "78",
+            "champion_id": "201",
+            "tier": 3
+          },
+          {
+            "champion_id": "111",
             "tier": 2
           },
           {
             "champion_id": "154",
-            "tier": 4
+            "tier": 3
+          },
+          {
+            "champion_id": "14",
+            "tier": 3
           }
         ]
       }
@@ -7850,7 +7850,7 @@
       "icon": "2116_Pursuit_of_Power_large.png",
       "sourceIcon": "marksmage_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -7859,20 +7859,20 @@
             "tier": 2
           },
           {
-            "champion_id": "142",
-            "tier": 2
-          },
-          {
             "champion_id": "76",
             "tier": 1
           },
           {
-            "champion_id": "81",
+            "champion_id": "163",
             "tier": 1
           },
           {
-            "champion_id": "136",
-            "tier": 2
+            "champion_id": "90",
+            "tier": 3
+          },
+          {
+            "champion_id": "81",
+            "tier": 1
           }
         ]
       }
@@ -7890,7 +7890,7 @@
       "icon": "2118_Ult_Bot_large.png",
       "sourceIcon": "skipthebasic_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -7907,11 +7907,11 @@
             "tier": 5
           },
           {
-            "champion_id": "68",
+            "champion_id": "54",
             "tier": 5
           },
           {
-            "champion_id": "54",
+            "champion_id": "68",
             "tier": 5
           }
         ]
@@ -7931,28 +7931,28 @@
       "icon": "2119_Overextender_large.png",
       "sourceIcon": "overextender_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "240",
             "tier": 3
           },
           {
-            "champion_id": "555",
-            "tier": 2
-          },
-          {
             "champion_id": "14",
-            "tier": 3
-          },
-          {
-            "champion_id": "33",
             "tier": 2
           },
           {
-            "champion_id": "59",
+            "champion_id": "421",
+            "tier": 2
+          },
+          {
+            "champion_id": "53",
+            "tier": 1
+          },
+          {
+            "champion_id": "164",
             "tier": 2
           }
         ]
@@ -7971,16 +7971,16 @@
       "icon": "2123_Overloaded_large.png",
       "sourceIcon": "genericabilityaugmenticon_prismatic.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
           {
-            "champion_id": "246",
+            "champion_id": "13",
             "tier": 1
           },
           {
-            "champion_id": "13",
+            "champion_id": "246",
             "tier": 1
           },
           {
@@ -7989,7 +7989,7 @@
           },
           {
             "champion_id": "92",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "267",
@@ -8011,12 +8011,16 @@
       "icon": "2125_Its_Go_Time_large.png",
       "sourceIcon": "genericabilityaugmenticon_silver.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
           {
             "champion_id": "2",
+            "tier": 3
+          },
+          {
+            "champion_id": "96",
             "tier": 2
           },
           {
@@ -8024,11 +8028,7 @@
             "tier": 2
           },
           {
-            "champion_id": "96",
-            "tier": 1
-          },
-          {
-            "champion_id": "18",
+            "champion_id": "498",
             "tier": 2
           },
           {
@@ -8066,7 +8066,7 @@
       "icon": "2127_Forged_By_The_Master_large.png",
       "sourceIcon": "forgedbythemaster_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -8079,15 +8079,15 @@
             "tier": 1
           },
           {
-            "champion_id": "143",
-            "tier": 1
-          },
-          {
             "champion_id": "63",
             "tier": 1
           },
           {
             "champion_id": "74",
+            "tier": 1
+          },
+          {
+            "champion_id": "143",
             "tier": 1
           }
         ]
@@ -8106,9 +8106,9 @@
       "icon": "2128_Combusting_Interest_large.png",
       "sourceIcon": "bloodmoney2_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 2,
+        "tier": 1,
         "top_champions": [
           {
             "champion_id": "90",
@@ -8127,7 +8127,7 @@
             "tier": 1
           },
           {
-            "champion_id": "68",
+            "champion_id": "27",
             "tier": 1
           }
         ]
@@ -8144,9 +8144,9 @@
       "icon": "2129_Terraind_large.png",
       "sourceIcon": "lightningstrikes_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "48",
@@ -8154,7 +8154,7 @@
           },
           {
             "champion_id": "34",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "59",
@@ -8162,7 +8162,7 @@
           },
           {
             "champion_id": "516",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "268",
@@ -8184,7 +8184,7 @@
       "icon": "2131_Dont_Change_the_Channel_large.png",
       "sourceIcon": "dontchangethechannel_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -8197,16 +8197,16 @@
             "tier": 2
           },
           {
-            "champion_id": "3",
-            "tier": 2
-          },
-          {
             "champion_id": "20",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "33",
-            "tier": 2
+            "tier": 1
+          },
+          {
+            "champion_id": "3",
+            "tier": 3
           }
         ]
       }
@@ -8224,7 +8224,7 @@
       "icon": "2132_Warlock_Juicebox_large.png",
       "sourceIcon": "warlockjuicebox_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 1,
         "top_champions": [
@@ -8237,11 +8237,11 @@
             "tier": 1
           },
           {
-            "champion_id": "876",
+            "champion_id": "136",
             "tier": 1
           },
           {
-            "champion_id": "136",
+            "champion_id": "876",
             "tier": 1
           },
           {
@@ -8269,21 +8269,21 @@
       "icon": "2133_Mercys_Strike_large.png",
       "sourceIcon": "genericabilityaugmenticon_gold.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "37",
-            "tier": 2
-          },
-          {
-            "champion_id": "235",
             "tier": 1
           },
           {
-            "champion_id": "888",
+            "champion_id": "235",
             "tier": 2
+          },
+          {
+            "champion_id": "888",
+            "tier": 1
           },
           {
             "champion_id": "432",
@@ -8291,7 +8291,7 @@
           },
           {
             "champion_id": "267",
-            "tier": 3
+            "tier": 2
           }
         ]
       }
@@ -8311,29 +8311,29 @@
       "icon": "2134_Surge_Field_large.png",
       "sourceIcon": "surgefield_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "34",
-            "tier": 4
+            "tier": 2
           },
           {
             "champion_id": "43",
-            "tier": 4
-          },
-          {
-            "champion_id": "142",
-            "tier": 5
+            "tier": 3
           },
           {
             "champion_id": "77",
-            "tier": 4
+            "tier": 3
           },
           {
-            "champion_id": "9",
-            "tier": 5
+            "champion_id": "893",
+            "tier": 3
+          },
+          {
+            "champion_id": "142",
+            "tier": 4
           }
         ]
       }
@@ -8351,7 +8351,7 @@
       "icon": "2135_Pin_Cushion_large.png",
       "sourceIcon": "symphonyofwar_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -8372,8 +8372,8 @@
             "tier": 3
           },
           {
-            "champion_id": "15",
-            "tier": 4
+            "champion_id": "29",
+            "tier": 2
           }
         ]
       }
@@ -8391,13 +8391,13 @@
       "icon": "2136_Trusty_Weapon_large.png",
       "sourceIcon": "genericabilityaugmenticon_silver.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "115",
-            "tier": 3
+            "tier": 4
           },
           {
             "champion_id": "69",
@@ -8408,12 +8408,12 @@
             "tier": 2
           },
           {
-            "champion_id": "28",
-            "tier": 4
+            "champion_id": "45",
+            "tier": 3
           },
           {
-            "champion_id": "45",
-            "tier": 4
+            "champion_id": "28",
+            "tier": 3
           }
         ]
       }
@@ -8432,7 +8432,7 @@
       "icon": "2137_Pat_On_The_Back_large.png",
       "sourceIcon": "patontheback_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
@@ -8445,16 +8445,16 @@
             "tier": 3
           },
           {
-            "champion_id": "497",
+            "champion_id": "201",
+            "tier": 3
+          },
+          {
+            "champion_id": "555",
             "tier": 2
           },
           {
             "champion_id": "876",
-            "tier": 2
-          },
-          {
-            "champion_id": "201",
-            "tier": 2
+            "tier": 3
           }
         ]
       }
@@ -8472,16 +8472,20 @@
       "icon": "2138_Adaptive_Ward_large.png",
       "sourceIcon": "genericabilityaugmenticon_silver.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "897",
-            "tier": 3
+            "tier": 4
           },
           {
             "champion_id": "420",
+            "tier": 3
+          },
+          {
+            "champion_id": "154",
             "tier": 3
           },
           {
@@ -8490,11 +8494,7 @@
           },
           {
             "champion_id": "266",
-            "tier": 3
-          },
-          {
-            "champion_id": "154",
-            "tier": 3
+            "tier": 4
           }
         ]
       }
@@ -8510,7 +8510,7 @@
       "icon": "2139_Porcupine_large.png",
       "sourceIcon": "pincushion_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -8520,19 +8520,19 @@
           },
           {
             "champion_id": "14",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "89",
             "tier": 1
           },
           {
-            "champion_id": "897",
-            "tier": 2
+            "champion_id": "526",
+            "tier": 1
           },
           {
-            "champion_id": "516",
-            "tier": 2
+            "champion_id": "897",
+            "tier": 1
           }
         ]
       }
@@ -8550,7 +8550,7 @@
       "icon": "2140_Upgrade_Ravenous_Hydra_large.png",
       "sourceIcon": "upgradesheen_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 3,
         "top_champions": [
@@ -8560,18 +8560,18 @@
           },
           {
             "champion_id": "164",
-            "tier": 2
+            "tier": 1
           },
           {
             "champion_id": "799",
             "tier": 1
           },
           {
-            "champion_id": "904",
+            "champion_id": "92",
             "tier": 1
           },
           {
-            "champion_id": "92",
+            "champion_id": "904",
             "tier": 1
           }
         ]
@@ -8590,7 +8590,7 @@
       "icon": "2141_Ultra_Hydra_large.png",
       "sourceIcon": "ultrahydra_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 2,
         "top_champions": [
@@ -8607,11 +8607,11 @@
             "tier": 1
           },
           {
-            "champion_id": "64",
+            "champion_id": "799",
             "tier": 1
           },
           {
-            "champion_id": "799",
+            "champion_id": "64",
             "tier": 1
           }
         ]
@@ -8633,13 +8633,13 @@
       "icon": "2143_Upgrade_Sundered_Sky_large.png",
       "sourceIcon": "upgradeie_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 5,
         "top_champions": [
           {
             "champion_id": "266",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "904",
@@ -8647,15 +8647,15 @@
           },
           {
             "champion_id": "164",
-            "tier": 3
+            "tier": 4
           },
           {
             "champion_id": "62",
-            "tier": 2
+            "tier": 3
           },
           {
             "champion_id": "80",
-            "tier": 2
+            "tier": 3
           }
         ]
       }
@@ -8673,7 +8673,7 @@
       "icon": "2144_Bolstered_large.png",
       "sourceIcon": "genericabilityaugmenticon_silver.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
         "tier": 4,
         "top_champions": [
@@ -8686,16 +8686,16 @@
             "tier": 1
           },
           {
-            "champion_id": "117",
-            "tier": 1
-          },
-          {
             "champion_id": "902",
             "tier": 1
           },
           {
+            "champion_id": "117",
+            "tier": 1
+          },
+          {
             "champion_id": "40",
-            "tier": 2
+            "tier": 1
           }
         ]
       }
@@ -8729,29 +8729,29 @@
       "icon": "2157_Upgrade_Deaths_Dance_large.png",
       "sourceIcon": "upgradedeathdance_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 4,
+        "tier": 3,
         "top_champions": [
           {
-            "champion_id": "904",
-            "tier": 1
+            "champion_id": "266",
+            "tier": 2
           },
           {
-            "champion_id": "266",
-            "tier": 3
+            "champion_id": "904",
+            "tier": 2
+          },
+          {
+            "champion_id": "114",
+            "tier": 2
+          },
+          {
+            "champion_id": "80",
+            "tier": 1
           },
           {
             "champion_id": "39",
             "tier": 1
-          },
-          {
-            "champion_id": "114",
-            "tier": 1
-          },
-          {
-            "champion_id": "80",
-            "tier": 2
           }
         ]
       }
@@ -8995,29 +8995,29 @@
       "icon": "12317_Pandoras_Box_large.png",
       "sourceIcon": "pandoras_box_large.png",
       "enabled": true,
-      "patch": "16.18",
+      "patch": "16.19",
       "stats": {
-        "tier": 5,
+        "tier": 4,
         "top_champions": [
           {
             "champion_id": "126",
-            "tier": 3
+            "tier": 2
           },
           {
             "champion_id": "163",
-            "tier": 3
+            "tier": 5
           },
           {
-            "champion_id": "26",
-            "tier": 4
+            "champion_id": "240",
+            "tier": 2
           },
           {
             "champion_id": "91",
-            "tier": 1
+            "tier": 2
           },
           {
-            "champion_id": "64",
-            "tier": 4
+            "champion_id": "26",
+            "tier": 5
           }
         ]
       }
