@@ -5,7 +5,7 @@ a = Analysis(
     ['augment_creator.py'],
     pathex=[],
     binaries=[],
-    datas=[('assets', 'assets'), ('augments.json', '.')],
+    datas=[('assets', 'assets'), ('augments.json', '.'), ('champion_abilities.json', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
