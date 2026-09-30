@@ -17,3 +17,6 @@ aram_mayhem_augments_raw.json
 # OS Files
 .DS_Store
 Thumbs.db
+# Build Output
+build/
+dist/

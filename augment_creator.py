@@ -1,3 +1,7 @@
+# ARAM Mayhem Augment Creator.
+# Desktop editor that loads scraped augment data, lets you edit the
+# name, tags and description, and renders a card PNG like the in-game one.
+
 import json
 import os
 import sys
@@ -5,15 +9,8 @@ import glob
 import re
 import html
 
-# Qt on Windows defaults to the DirectWrite text-rendering backend, which
-# has a known issue rendering certain CFF-flavored .otf fonts (like the
-# extracted Beaufort/Spiegel files here) when they're loaded at runtime
-# via QFontDatabase.addApplicationFont() rather than being installed
-# system fonts: compound curves in glyphs like "A" and "G" come out
-# self-intersecting/corrupted, while simple straight-stroke glyphs look
-# fine. Forcing the FreeType backend instead avoids the bug entirely.
-# This must be set before QApplication is constructed, and only applies
-# on Windows.
+# Use FreeType on Windows so the League fonts render with the same
+# spacing as in-game instead of Windows' DirectWrite hinting.
 if sys.platform == "win32":
     os.environ.setdefault(
         "QT_QPA_PLATFORM",
@@ -33,6 +30,8 @@ from PySide6.QtGui import (
     QTextImageFormat,
     QFontMetrics,
     QLinearGradient,
+    QPainterPath,
+    QPen,
 )
 from PySide6.QtWidgets import (
     QApplication,
@@ -49,13 +48,12 @@ from PySide6.QtWidgets import (
     QColorDialog,
     QFrame,
     QFileDialog,
+    QComboBox,
+    QCompleter,
 )
 
 
-# ============================================================
-# PATHS
-# ============================================================
-
+# File and folder locations, all relative to this script.
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 AUGMENTS_FILE = os.path.join(
@@ -93,11 +91,33 @@ FONTS_DIR = os.path.join(
     "fonts"
 )
 
+EDITS_FILE = os.path.join(
+    BASE_DIR,
+    "augment_edits.json"
+)
 
-# ============================================================
-# STAT ICONS
-# ============================================================
+CHAMPION_ABILITIES_FILE = os.path.join(
+    BASE_DIR,
+    "champion_abilities.json"
+)
 
+ABILITY_ICONS_DIR = os.path.join(
+    ASSETS_DIR,
+    "ability_icons"
+)
+
+CHAMPION_ICONS_DIR = os.path.join(
+    ASSETS_DIR,
+    "champion_icons"
+)
+
+ABILITY_FRAMES_DIR = os.path.join(
+    ASSETS_DIR,
+    "ability_frames"
+)
+
+
+# Stat icons offered in the "Stat Icons" menu: menu label -> file in assets/stat_icons.
 STAT_ICONS = {
     "Attack Damage": "attack_damage.png",
     "Ability Power": "ability_power.png",
@@ -110,38 +130,28 @@ STAT_ICONS = {
     "Tenacity": "tenacity.png",
     "Adaptive Force": "adaptive_force.png",
     "Critical Strike": "critical_strike.png",
+    "On-Hit": "on_hit.png",
+    "Cooldown": "cooldown.png",
 }
 
 
-# ============================================================
-# CARD SIZE
-# ============================================================
-
+# Size of the rendered card in pixels.
 CARD_WIDTH = 380
 CARD_HEIGHT = 580
 
 
-# ============================================================
-# DEBUG
-# ============================================================
-
+# Set True to draw colored outlines around each layout area on the card.
 DEBUG_BOUNDS = False
 
 
-# ============================================================
-# ICON
-# ============================================================
-
+# Augment icon box: size and top-left position on the card.
 ICON_SIZE = 165
 
 ICON_X = 107
 ICON_Y = 48
 
 
-# ============================================================
-# TITLE
-# ============================================================
-
+# Title (augment name) box position, size, font size and alignment.
 TITLE_X = 30
 TITLE_Y = 260
 
@@ -153,21 +163,20 @@ TITLE_FONT_SIZE = 18
 TITLE_ALIGNMENT = Qt.AlignCenter
 
 
-# ============================================================
-# TAG BOXES
-# ============================================================
-
+# Tag row: area on the card where the tag pills are centered.
 TAG_AREA_X = 30
 TAG_AREA_Y = 303
 
 TAG_AREA_WIDTH = 320
 TAG_AREA_HEIGHT = 23
 
+# Spacing and padding around each tag pill.
 TAG_GAP = 6
 
 TAG_PADDING_X = 4
 TAG_PADDING_Y = 1
 
+# Width limits for a single tag pill.
 TAG_MAX_WIDTH = 180
 TAG_MIN_WIDTH = 0
 
@@ -177,27 +186,27 @@ TAG_FONT_SIZE = 12
 
 TAG_TEXT_ALIGNMENT = Qt.AlignCenter
 
+# Normal tag pill colors: gradient edge, gradient center, text.
 TAG_BOX_COLOR_EDGE = "#89877a"
 TAG_BOX_COLOR_CENTER = "#9b9d94"
 TAG_TEXT_COLOR = "#1A1A1A"
 
-# Quest Tag Styling
+# "Quest" tag pill colors (gold).
 TAG_QUEST_BOX_COLOR_EDGE = "#f0c200"
 TAG_QUEST_BOX_COLOR_CENTER = "#e9c117"
 TAG_QUEST_TEXT_COLOR = "#111111"
 
+# Optional outline around each tag pill (0 = no outline).
 TAG_BORDER_WIDTH = 0
 TAG_BORDER_COLOR = "#000000"
 
+# Drop shadow drawn behind each tag pill.
 TAG_SHADOW_OFFSET_X = 1
 TAG_SHADOW_OFFSET_Y = 1
 TAG_SHADOW_COLOR = "#80000000"
 
 
-# ============================================================
-# DESCRIPTION
-# ============================================================
-
+# Description text box position, size, font and alignment.
 DESCRIPTION_X = 42
 DESCRIPTION_Y = 350
 
@@ -210,16 +219,61 @@ DESCRIPTION_LETTER_SPACING = .75
 
 DESCRIPTION_ALIGNMENT = Qt.AlignCenter
 
+# Default height of inline stat icons, with per-icon overrides below.
 STAT_ICON_SIZE = 12
 
 STAT_ICON_CUSTOM_SIZES = {
-    "critical_strike.png": 16,   
+    "critical_strike.png": 16,
+    "on_hit.png": 14,
+    "cooldown.png": 14,
+    
 }
 
-# ============================================================
-# COLORS
-# ============================================================
 
+# Gold "?" in scraped descriptions marks an augment that targets one of your
+# abilities; its presence switches on the champion/ability picker.
+ABILITY_PLACEHOLDER = "<font color='#F0C200'>?</font>"
+
+ABILITY_GOLD = "#F0C200"
+
+# Ability slots, in the order they appear in the skill dropdown.
+ABILITY_KEYS = ["Q", "W", "E", "R"]
+
+# Augments locked to one ability slot (augment id -> key), so the
+# skill dropdown only offers that slot.
+FIXED_ABILITY_KEYS = {
+    "1103": "Q",
+    "1150": "W",
+    "1151": "E",
+}
+
+# Augments that draw a special frame instead of their normal icon when
+# an ability is picked (augment id -> file in assets/ability_frames).
+ABILITY_FRAMES = {
+    "2064": "quickstep_frame.png",
+}
+
+ABILITY_FRAME_SIZE = 178
+
+# Ability icon drawn in the middle of the augment icon, plus its border.
+ABILITY_ICON_SIZE = 64
+ABILITY_ICON_BORDER_WIDTH = 2
+ABILITY_ICON_BORDER_COLOR = "#c9b489"
+
+# "[Q]" key label drawn under the ability icon.
+ABILITY_KEY_Y = 170
+ABILITY_KEY_HEIGHT = 22
+ABILITY_KEY_FONT_SIZE = 14
+
+# Round champion portrait in the card's top-left corner.
+PORTRAIT_X = 10
+PORTRAIT_Y = 10
+PORTRAIT_SIZE = 56
+PORTRAIT_RING_WIDTH = 4
+PORTRAIT_RING_COLOR = "#d9c7a0"
+
+
+# Editor window colors (not used on the card itself).
 BG = "#101216"
 PANEL = "#181b21"
 PANEL_2 = "#20242c"
@@ -229,15 +283,13 @@ TEXT = "#eeeeee"
 SUBTEXT = "#9da3ad"
 ACCENT = "#c8a96b"
 
+# Card text colors: title text and League keyword highlight.
 CARD_TEXT = "#eae7da"
 
 LEAGUE_HIGHLIGHT = "#C8AA6E"
 
 
-# ============================================================
-# FONT FILES
-# ============================================================
-
+# League fonts bundled in assets/fonts: display name -> file.
 FONT_FILES = {
     "Beaufort Bold": os.path.join(
         FONTS_DIR,
@@ -261,10 +313,8 @@ FONT_FILES = {
 }
 
 
-# ============================================================
-# FONT LOADING
-# ============================================================
-
+# Registers the bundled fonts with Qt and returns
+# {display name: Qt family name} for the ones that loaded.
 def load_fonts():
 
     loaded = {}
@@ -310,10 +360,9 @@ def load_fonts():
     return loaded
 
 
-# ============================================================
-# LEAGUE MARKUP -> QT HTML
-# ============================================================
-
+# Converts Riot's description markup (<scaleAD>, <status>, <br>, ...) into
+# HTML the QTextEdit understands. Highlight tags become gold <font> spans,
+# explicit <font color> tags keep their color, and any other tag is dropped.
 def convert_league_markup(text):
 
     if not text:
@@ -321,7 +370,21 @@ def convert_league_markup(text):
 
     replacements = {}
 
+    # Swaps a highlight tag for a placeholder so html.escape() below
+    # doesn't mangle it; the placeholder is turned back into HTML later.
     def protect_tag(match):
+
+        key = f"___LEAGUE_TAG_{len(replacements)}___"
+
+        replacements[key] = (
+            LEAGUE_HIGHLIGHT,
+            match.group(2)
+        )
+
+        return key
+
+    # Same as protect_tag, but keeps the tag's own color.
+    def protect_font(match):
 
         key = f"___LEAGUE_TAG_{len(replacements)}___"
 
@@ -332,6 +395,21 @@ def convert_league_markup(text):
 
         return key
 
+    # Line breaks become real newlines first so they survive escaping.
+    text = re.sub(
+        r"<br\s*/?>",
+        "\n",
+        text,
+        flags=re.IGNORECASE
+    )
+
+    text = re.sub(
+        r"<font color=['\"](#[0-9A-Fa-f]{6})['\"]>(.*?)</font>",
+        protect_font,
+        text,
+        flags=re.IGNORECASE | re.DOTALL
+    )
+
     protected = re.sub(
         r"<(scale[A-Za-z0-9_]+|attention|status|keyword[A-Za-z0-9_]*|magicDamage|physicalDamage|trueDamage)>(.*?)</\1>",
         protect_tag,
@@ -339,12 +417,14 @@ def convert_league_markup(text):
         flags=re.IGNORECASE | re.DOTALL
     )
 
+    # Escape everything else so stray < > & show as text.
     protected = html.escape(
         protected
     )
 
+    # Put the protected highlights back as colored <font> spans.
     for key, (
-        tag,
+        color,
         content
     ) in replacements.items():
 
@@ -353,7 +433,7 @@ def convert_league_markup(text):
         )
 
         replacement = (
-            f'<font color="{LEAGUE_HIGHLIGHT}">'
+            f'<font color="{color}">'
             f'{content}'
             f'</font>'
         )
@@ -363,6 +443,7 @@ def convert_league_markup(text):
             replacement
         )
 
+    # Remove any leftover (now escaped) tags the editor wouldn't understand.
     protected = re.sub(
         r"&lt;/?[A-Za-z][^&]*?&gt;",
         "",
@@ -377,10 +458,8 @@ def convert_league_markup(text):
     return protected
 
 
-# ============================================================
-# MAIN WINDOW
-# ============================================================
-
+# Main window: augment list on the left, editor in the middle, live
+# card preview on the right.
 class AugmentCreator(QMainWindow):
 
     def __init__(self):
@@ -398,25 +477,39 @@ class AugmentCreator(QMainWindow):
 
         self.fonts = load_fonts()
 
+        # augments.json entries, and the one currently open in the editor.
         self.augments = []
 
         self.current_augment = None
 
+        # Tags shown on the card for the current augment.
         self.tags = []
+
+        # champion_abilities.json data, keyed by champion id.
+        self.champions = {}
+
+        self.is_ability_augment = False
+
+        # Saved edits keyed by augment id, and the editor state as it was when
+        # the current augment was opened (used to detect unsaved changes).
+        self.edits = {}
+
+        self.loaded_state = None
 
         self.load_settings()
 
         self.load_augments()
+
+        self.load_champions()
+
+        self.load_edits()
 
         self.build_ui()
 
         self.populate_augment_list()
 
 
-    # ========================================================
-    # DATA
-    # ========================================================
-
+    # Reads the scraped augment list from augments.json.
     def load_augments(self):
 
         if not os.path.exists(
@@ -447,10 +540,336 @@ class AugmentCreator(QMainWindow):
         )
 
 
-    # ========================================================
-    # SETTINGS
-    # ========================================================
+    # Reads champion and ability names/icons for the ability picker.
+    def load_champions(self):
 
+        if not os.path.exists(
+            CHAMPION_ABILITIES_FILE
+        ):
+
+            print(
+                f"Could not find {CHAMPION_ABILITIES_FILE} "
+                "- run champion_ability_scraper.py"
+            )
+
+            return
+
+        with open(
+            CHAMPION_ABILITIES_FILE,
+            "r",
+            encoding="utf-8"
+        ) as f:
+
+            data = json.load(f)
+
+        self.champions = data.get(
+            "champions",
+            {}
+        )
+
+        print(
+            f"Loaded {len(self.champions)} champions"
+        )
+
+
+    # Reads saved edits from augment_edits.json, starting empty if it's
+    # missing or unreadable.
+    def load_edits(self):
+
+        if not os.path.exists(
+            EDITS_FILE
+        ):
+            return
+
+        try:
+
+            with open(
+                EDITS_FILE,
+                "r",
+                encoding="utf-8"
+            ) as f:
+
+                self.edits = json.load(f)
+
+        except (OSError, json.JSONDecodeError) as e:
+
+            print(
+                f"Could not read {EDITS_FILE}: {e}"
+            )
+
+            self.edits = {}
+
+        print(
+            f"Loaded {len(self.edits)} saved edits"
+        )
+
+
+    # Writes all saved edits back to augment_edits.json.
+    def write_edits(self):
+
+        with open(
+            EDITS_FILE,
+            "w",
+            encoding="utf-8"
+        ) as f:
+
+            json.dump(
+                self.edits,
+                f,
+                indent=2,
+                ensure_ascii=False
+            )
+
+
+    # Snapshot of everything the user can edit, as stored in augment_edits.json.
+    def get_editor_state(self):
+
+        return {
+            "name": self.name_edit.text(),
+            "tags": list(self.tags),
+            "description_html": self.description_edit.toHtml(),
+            "champion": self.champion_combo.currentData(),
+            "skill": self.skill_combo.currentData(),
+        }
+
+
+    # Id of the augment open in the editor, as a string.
+    def get_current_augment_id(self):
+
+        if not self.current_augment:
+            return None
+
+        return str(
+            self.current_augment.get(
+                "id",
+                ""
+            )
+        )
+
+
+    # Stores the editor's current state as the saved edit for this augment.
+    # With only_if_changed=True (autosave) it skips saving when nothing changed.
+    def save_current_edit(
+        self,
+        only_if_changed=False
+    ):
+
+        augment_id = self.get_current_augment_id()
+
+        if not augment_id:
+            return
+
+        state = self.get_editor_state()
+
+        if (
+            only_if_changed
+            and state == self.loaded_state
+        ):
+            return
+
+        self.edits[augment_id] = state
+
+        self.write_edits()
+
+        self.loaded_state = state
+
+        self.refresh_list_item_styles()
+
+        self.statusBar().showMessage(
+            f"Saved {state['name']}",
+            3000
+        )
+
+
+    # Deletes the saved edit for this augment and reloads the original data.
+    def reset_current_edit(self):
+
+        augment_id = self.get_current_augment_id()
+
+        if not augment_id:
+            return
+
+        if augment_id in self.edits:
+
+            del self.edits[augment_id]
+
+            self.write_edits()
+
+        item = self.augment_list.currentItem()
+
+        if item:
+
+            self.select_augment(
+                item,
+                autosave=False
+            )
+
+        self.refresh_list_item_styles()
+
+        self.statusBar().showMessage(
+            "Reset to original",
+            3000
+        )
+
+
+    # Loads a saved edit into the editor fields. Signals are blocked while
+    # setting values so each field doesn't trigger its own preview render.
+    def apply_saved_edit(
+        self,
+        augment_id
+    ):
+
+        edit = self.edits.get(
+            augment_id
+        )
+
+        if not edit:
+            return
+
+        self.name_edit.blockSignals(
+            True
+        )
+
+        self.name_edit.setText(
+            edit.get(
+                "name",
+                self.name_edit.text()
+            )
+        )
+
+        self.name_edit.blockSignals(
+            False
+        )
+
+        self.tags = list(
+            edit.get(
+                "tags",
+                self.tags
+            )
+        )
+
+        self.update_tags_display()
+
+        if edit.get("champion"):
+
+            index = self.champion_combo.findData(
+                edit["champion"]
+            )
+
+            if index >= 0:
+
+                self.champion_combo.blockSignals(
+                    True
+                )
+
+                self.champion_combo.setCurrentIndex(
+                    index
+                )
+
+                self.champion_combo.blockSignals(
+                    False
+                )
+
+                self.populate_skill_combo()
+
+        if edit.get("skill"):
+
+            index = self.skill_combo.findData(
+                edit["skill"]
+            )
+
+            if index >= 0:
+
+                self.skill_combo.blockSignals(
+                    True
+                )
+
+                self.skill_combo.setCurrentIndex(
+                    index
+                )
+
+                self.skill_combo.blockSignals(
+                    False
+                )
+
+        if edit.get("description_html"):
+
+            self.description_edit.blockSignals(
+                True
+            )
+
+            self.description_edit.setHtml(
+                edit["description_html"]
+            )
+
+            self.description_edit.blockSignals(
+                False
+            )
+
+
+    # Shows augments with saved edits in italic gold in the list.
+    def refresh_list_item_styles(self):
+
+        for i in range(
+            self.augment_list.count()
+        ):
+
+            item = self.augment_list.item(
+                i
+            )
+
+            augment = item.data(
+                Qt.UserRole
+            )
+
+            augment_id = str(
+                augment.get(
+                    "id",
+                    ""
+                )
+            )
+
+            edited = augment_id in self.edits
+
+            font = item.font()
+
+            font.setItalic(
+                edited
+            )
+
+            item.setFont(
+                font
+            )
+
+            item.setForeground(
+                QColor(ACCENT)
+                if edited
+                else QColor(TEXT)
+            )
+
+            item.setToolTip(
+                "Has saved edits"
+                if edited
+                else ""
+            )
+
+
+    # Autosaves the open augment when the window closes.
+    def closeEvent(
+        self,
+        event
+    ):
+
+        self.save_current_edit(
+            only_if_changed=True
+        )
+
+        super().closeEvent(
+            event
+        )
+
+
+    # Restores the custom colors saved in the color picker.
     def load_settings(self):
 
         if not os.path.exists(
@@ -481,6 +900,7 @@ class AugmentCreator(QMainWindow):
                 )
 
 
+    # Saves the color picker's custom colors to settings.json.
     def save_settings(self):
 
         colors = []
@@ -512,10 +932,7 @@ class AugmentCreator(QMainWindow):
             )
 
 
-    # ========================================================
-    # UI
-    # ========================================================
-
+    # Builds the three-panel window layout and its stylesheet.
     def build_ui(self):
 
         central = QWidget()
@@ -540,10 +957,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # LEFT PANEL
-        # ====================================================
-
+        # Left panel: search box and augment list.
         left_panel = QFrame()
 
         left_panel.setObjectName(
@@ -591,10 +1005,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # CENTER PANEL
-        # ====================================================
-
+        # Center panel: editor fields.
         center_panel = QFrame()
 
         center_panel.setObjectName(
@@ -618,10 +1029,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # NAME
-        # ====================================================
-
+        # Name field.
         name_label = QLabel(
             "Name"
         )
@@ -645,10 +1053,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # TAGS
-        # ====================================================
-
+        # Tag input plus the row of removable tag buttons.
         tags_label = QLabel(
             "Tags"
         )
@@ -719,10 +1124,103 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # DESCRIPTION
-        # ====================================================
+        # Champion and ability picker, only shown for ability augments.
+        self.ability_section = QWidget()
 
+        ability_section_layout = QVBoxLayout(
+            self.ability_section
+        )
+
+        ability_section_layout.setContentsMargins(
+            0,
+            0,
+            0,
+            0
+        )
+
+        ability_label = QLabel(
+            "Ability"
+        )
+
+        ability_label.setObjectName(
+            "label"
+        )
+
+        ability_section_layout.addWidget(
+            ability_label
+        )
+
+        ability_row = QHBoxLayout()
+
+        self.champion_combo = QComboBox()
+
+        self.champion_combo.setEditable(
+            True
+        )
+
+        self.champion_combo.setInsertPolicy(
+            QComboBox.NoInsert
+        )
+
+        self.champion_combo.addItem(
+            "No champion",
+            None
+        )
+
+        for champion_id, champion in self.champions.items():
+
+            self.champion_combo.addItem(
+                champion["name"],
+                champion_id
+            )
+
+        # Let the champion box match text anywhere in the name while typing.
+        completer = self.champion_combo.completer()
+
+        completer.setFilterMode(
+            Qt.MatchContains
+        )
+
+        completer.setCompletionMode(
+            QCompleter.PopupCompletion
+        )
+
+        self.champion_combo.currentIndexChanged.connect(
+            self.on_champion_changed
+        )
+
+        ability_row.addWidget(
+            self.champion_combo,
+            3
+        )
+
+        self.skill_combo = QComboBox()
+
+        self.skill_combo.currentIndexChanged.connect(
+            self.update_preview
+        )
+
+        ability_row.addWidget(
+            self.skill_combo,
+            4
+        )
+
+        ability_section_layout.addLayout(
+            ability_row
+        )
+
+        center_layout.addWidget(
+            self.ability_section
+        )
+
+        self.ability_section.setVisible(
+            False
+        )
+
+        self.populate_skill_combo()
+
+
+        # Description formatting toolbar.
         description_label = QLabel(
             "Description"
         )
@@ -737,10 +1235,6 @@ class AugmentCreator(QMainWindow):
 
         toolbar = QHBoxLayout()
 
-
-        # ----------------------------------------------------
-        # BOLD
-        # ----------------------------------------------------
 
         self.bold_button = QPushButton(
             "B"
@@ -759,10 +1253,6 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ----------------------------------------------------
-        # ITALIC
-        # ----------------------------------------------------
-
         self.italic_button = QPushButton(
             "I"
         )
@@ -780,10 +1270,6 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ----------------------------------------------------
-        # COLOR
-        # ----------------------------------------------------
-
         color_button = QPushButton(
             "Text Color"
         )
@@ -796,10 +1282,6 @@ class AugmentCreator(QMainWindow):
             color_button
         )
 
-
-        # ----------------------------------------------------
-        # STAT ICONS
-        # ----------------------------------------------------
 
         stat_icon_button = QPushButton(
             "Stat Icons"
@@ -818,10 +1300,6 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ----------------------------------------------------
-        # TOOLBAR SPACER
-        # ----------------------------------------------------
-
         toolbar.addStretch()
 
         center_layout.addLayout(
@@ -829,10 +1307,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ----------------------------------------------------
-        # TEXT EDITOR
-        # ----------------------------------------------------
-
+        # Rich-text description editor, using the card's description font.
         self.description_edit = QTextEdit()
 
         description_font_family = self.fonts.get(
@@ -866,10 +1341,45 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # RIGHT PANEL
-        # ====================================================
+        # Save and reset buttons.
+        save_row = QHBoxLayout()
 
+        save_button = QPushButton(
+            "Save Changes  (Ctrl+S)"
+        )
+
+        save_button.setShortcut(
+            "Ctrl+S"
+        )
+
+        save_button.clicked.connect(
+            lambda: self.save_current_edit()
+        )
+
+        save_row.addWidget(
+            save_button
+        )
+
+        reset_button = QPushButton(
+            "Reset to Original"
+        )
+
+        reset_button.clicked.connect(
+            self.reset_current_edit
+        )
+
+        save_row.addWidget(
+            reset_button
+        )
+
+        save_row.addStretch()
+
+        center_layout.addLayout(
+            save_row
+        )
+
+
+        # Right panel: card preview and export button.
         right_panel = QFrame()
 
         right_panel.setObjectName(
@@ -909,10 +1419,6 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # EXPORT
-        # ====================================================
-
         export_button = QPushButton(
             "EXPORT PNG"
         )
@@ -930,10 +1436,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # ADD PANELS
-        # ====================================================
-
+        # Panel width ratio 1:2:2.
         main_layout.addWidget(
             left_panel,
             1
@@ -950,10 +1453,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # STYLE
-        # ====================================================
-
+        # Dark theme for the editor window.
         self.setStyleSheet(
             f"""
 
@@ -988,7 +1488,8 @@ class AugmentCreator(QMainWindow):
 
             QLineEdit,
             QTextEdit,
-            QListWidget {{
+            QListWidget,
+            QComboBox {{
                 background: {PANEL_2};
                 border: 1px solid {BORDER};
                 border-radius: 5px;
@@ -1043,10 +1544,8 @@ class AugmentCreator(QMainWindow):
         )
 
 
-    # ========================================================
-    # AUGMENT LIST
-    # ========================================================
-
+    # Fills the left list with every augment; each item keeps its augment
+    # dict in Qt.UserRole.
     def populate_augment_list(self):
 
         self.augment_list.clear()
@@ -1071,7 +1570,10 @@ class AugmentCreator(QMainWindow):
                 item
             )
 
+        self.refresh_list_item_styles()
 
+
+    # Hides list items whose name doesn't contain the search text.
     def filter_augments(
         self,
         text
@@ -1101,14 +1603,19 @@ class AugmentCreator(QMainWindow):
             )
 
 
-    # ========================================================
-    # SELECT AUGMENT
-    # ========================================================
-
+    # Opens an augment in the editor: autosaves the previous one, fills every
+    # field from the scraped data, then applies any saved edit on top.
     def select_augment(
         self,
-        item
+        item,
+        autosave=True
     ):
+
+        if autosave:
+
+            self.save_current_edit(
+                only_if_changed=True
+            )
 
         augment = item.data(
             Qt.UserRole
@@ -1116,10 +1623,6 @@ class AugmentCreator(QMainWindow):
 
         self.current_augment = augment
 
-
-        # ----------------------------------------------------
-        # NAME
-        # ----------------------------------------------------
 
         name = augment.get(
             "name",
@@ -1139,10 +1642,6 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ----------------------------------------------------
-        # TAGS
-        # ----------------------------------------------------
-
         self.tags = list(
             augment.get(
                 "tags",
@@ -1153,10 +1652,23 @@ class AugmentCreator(QMainWindow):
         self.update_tags_display()
 
 
-        # ----------------------------------------------------
-        # DESCRIPTION
-        # ----------------------------------------------------
+        # Ability augments are detected by the gold "?" placeholder.
+        self.is_ability_augment = (
+            ABILITY_PLACEHOLDER
+            in augment.get(
+                "description",
+                ""
+            )
+        )
 
+        self.ability_section.setVisible(
+            self.is_ability_augment
+        )
+
+        self.populate_skill_combo()
+
+
+        # Description is converted from Riot markup to editor HTML.
         description = augment.get(
             "description",
             ""
@@ -1181,10 +1693,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ----------------------------------------------------
-        # Reset toolbar state
-        # ----------------------------------------------------
-
+        # Reset the bold/italic toggles for the new text.
         self.bold_button.blockSignals(
             True
         )
@@ -1210,13 +1719,400 @@ class AugmentCreator(QMainWindow):
         )
 
 
+        # Saved edits override the scraped values.
+        self.apply_saved_edit(
+            self.get_current_augment_id()
+        )
+
+        self.loaded_state = self.get_editor_state()
+
+
         self.update_preview()
 
 
-    # ========================================================
-    # TAGS
-    # ========================================================
+    # Picking a new champion refreshes its ability list and the preview.
+    def on_champion_changed(self):
 
+        self.populate_skill_combo()
+
+        self.update_preview()
+
+
+    # Refills the skill dropdown with the chosen champion's abilities, keeping
+    # the same slot selected when possible. Locked augments only list their
+    # fixed slot and disable the dropdown.
+    def populate_skill_combo(self):
+
+        previous_key = self.skill_combo.currentData()
+
+        self.skill_combo.blockSignals(
+            True
+        )
+
+        self.skill_combo.clear()
+
+        champion = self.get_selected_champion()
+
+        fixed_key = None
+
+        if self.current_augment:
+
+            fixed_key = FIXED_ABILITY_KEYS.get(
+                str(
+                    self.current_augment.get(
+                        "id",
+                        ""
+                    )
+                )
+            )
+
+        if champion:
+
+            abilities = champion.get(
+                "abilities",
+                {}
+            )
+
+            for key in ABILITY_KEYS:
+
+                if fixed_key and key != fixed_key:
+                    continue
+
+                ability = abilities.get(key)
+
+                if not ability:
+                    continue
+
+                self.skill_combo.addItem(
+                    f"{key} - {ability['name']}",
+                    key
+                )
+
+            index = self.skill_combo.findData(
+                previous_key
+            )
+
+            if index >= 0:
+
+                self.skill_combo.setCurrentIndex(
+                    index
+                )
+
+        self.skill_combo.setEnabled(
+            champion is not None
+            and fixed_key is None
+        )
+
+        self.skill_combo.blockSignals(
+            False
+        )
+
+
+    # Champion dict for the champion dropdown's selection, or None.
+    def get_selected_champion(self):
+
+        champion_id = self.champion_combo.currentData()
+
+        if not champion_id:
+            return None
+
+        return self.champions.get(
+            champion_id
+        )
+
+
+    # Returns (key, ability) for the chosen skill, or None when this isn't
+    # an ability augment or nothing is chosen.
+    def get_selected_ability(self):
+
+        if not self.is_ability_augment:
+            return None
+
+        champion = self.get_selected_champion()
+
+        key = self.skill_combo.currentData()
+
+        if not champion or not key:
+            return None
+
+        ability = champion.get(
+            "abilities",
+            {}
+        ).get(
+            key
+        )
+
+        if not ability:
+            return None
+
+        return key, ability
+
+
+    # Path of this augment's special ability frame, if it has one.
+    def find_ability_frame(self):
+
+        if not self.current_augment:
+            return None
+
+        filename = ABILITY_FRAMES.get(
+            str(
+                self.current_augment.get(
+                    "id",
+                    ""
+                )
+            )
+        )
+
+        if not filename:
+            return None
+
+        path = os.path.join(
+            ABILITY_FRAMES_DIR,
+            filename
+        )
+
+        if os.path.exists(
+            path
+        ):
+
+            return path
+
+        return None
+
+
+    # Replaces the gold "?" in the description HTML with the chosen ability's
+    # name for the rendered card. The editor keeps the "?" so the champion
+    # can be changed at any time.
+    def fill_ability_name(
+        self,
+        description_html
+    ):
+
+        selected = self.get_selected_ability()
+
+        if not selected:
+            return description_html
+
+        key, ability = selected
+
+        ability_name = html.escape(
+            ability["name"]
+        )
+
+        return re.sub(
+            r'(<span style="[^"]*color:\s*#f0c200;?[^"]*">)\?(</span>)',
+            lambda match: (
+                match.group(1)
+                + ability_name
+                + match.group(2)
+            ),
+            description_html,
+            flags=re.IGNORECASE
+        )
+
+
+    # Draws the ability augment extras: champion portrait in the corner,
+    # ability icon over the augment icon, and the "[Q]" key label.
+    def draw_ability_overlay(
+        self,
+        painter
+    ):
+
+        if not self.is_ability_augment:
+            return
+
+        center_x = ICON_X + ICON_SIZE / 2
+        center_y = ICON_Y + ICON_SIZE / 2
+
+
+        # Round champion portrait with a colored ring.
+        champion = self.get_selected_champion()
+
+        if champion:
+
+            portrait_path = os.path.join(
+                CHAMPION_ICONS_DIR,
+                champion.get(
+                    "icon",
+                    ""
+                )
+            )
+
+            if os.path.exists(
+                portrait_path
+            ):
+
+                portrait = QPixmap(
+                    portrait_path
+                ).scaled(
+                    PORTRAIT_SIZE,
+                    PORTRAIT_SIZE,
+                    Qt.KeepAspectRatioByExpanding,
+                    Qt.SmoothTransformation
+                )
+
+                portrait_rect = QRectF(
+                    PORTRAIT_X,
+                    PORTRAIT_Y,
+                    PORTRAIT_SIZE,
+                    PORTRAIT_SIZE
+                )
+
+                clip = QPainterPath()
+
+                clip.addEllipse(
+                    portrait_rect
+                )
+
+                painter.save()
+
+                painter.setClipPath(
+                    clip
+                )
+
+                painter.drawPixmap(
+                    PORTRAIT_X,
+                    PORTRAIT_Y,
+                    portrait
+                )
+
+                painter.restore()
+
+                painter.save()
+
+                painter.setPen(
+                    QPen(
+                        QColor(
+                            PORTRAIT_RING_COLOR
+                        ),
+                        PORTRAIT_RING_WIDTH
+                    )
+                )
+
+                painter.setBrush(
+                    Qt.NoBrush
+                )
+
+                ring_inset = PORTRAIT_RING_WIDTH / 2
+
+                painter.drawEllipse(
+                    portrait_rect.adjusted(
+                        ring_inset,
+                        ring_inset,
+                        -ring_inset,
+                        -ring_inset
+                    )
+                )
+
+                painter.restore()
+
+
+        # Everything below needs an ability picked.
+        selected = self.get_selected_ability()
+
+        if not selected:
+            return
+
+        key, ability = selected
+
+
+        # Ability icon centered on the augment icon, with a square border.
+        ability_icon_path = os.path.join(
+            ABILITY_ICONS_DIR,
+            ability["icon"]
+        )
+
+        if os.path.exists(
+            ability_icon_path
+        ):
+
+            ability_icon = QPixmap(
+                ability_icon_path
+            ).scaled(
+                ABILITY_ICON_SIZE,
+                ABILITY_ICON_SIZE,
+                Qt.IgnoreAspectRatio,
+                Qt.SmoothTransformation
+            )
+
+            icon_rect = QRectF(
+                center_x - ABILITY_ICON_SIZE / 2,
+                center_y - ABILITY_ICON_SIZE / 2,
+                ABILITY_ICON_SIZE,
+                ABILITY_ICON_SIZE
+            )
+
+            painter.drawPixmap(
+                icon_rect.toRect(),
+                ability_icon
+            )
+
+            painter.save()
+
+            painter.setPen(
+                QPen(
+                    QColor(
+                        ABILITY_ICON_BORDER_COLOR
+                    ),
+                    ABILITY_ICON_BORDER_WIDTH
+                )
+            )
+
+            painter.setBrush(
+                Qt.NoBrush
+            )
+
+            painter.drawRect(
+                icon_rect
+            )
+
+            painter.restore()
+
+
+        # "[Q]"-style key label under the icon.
+        key_font = QFont(
+            self.fonts.get(
+                "Beaufort Bold",
+                "Arial"
+            ),
+            ABILITY_KEY_FONT_SIZE
+        )
+
+        key_font.setHintingPreference(
+            QFont.HintingPreference.PreferNoHinting
+        )
+
+        key_font.setWeight(
+            QFont.Weight.Bold
+        )
+
+        painter.save()
+
+        painter.setFont(
+            key_font
+        )
+
+        painter.setPen(
+            QColor(
+                ABILITY_GOLD
+            )
+        )
+
+        painter.drawText(
+            QRectF(
+                TITLE_X,
+                ABILITY_KEY_Y,
+                TITLE_WIDTH,
+                ABILITY_KEY_HEIGHT
+            ),
+            Qt.AlignCenter,
+            f"[{key}]"
+        )
+
+        painter.restore()
+
+
+    # Adds the typed tag (skipping duplicates) and refreshes the display.
     def add_tag(self):
 
         tag = self.tag_input.text().strip()
@@ -1237,6 +2133,7 @@ class AugmentCreator(QMainWindow):
         self.update_preview()
 
 
+    # Rebuilds the row of tag buttons; clicking one removes that tag.
     def update_tags_display(self):
 
         while self.tags_layout.count():
@@ -1288,6 +2185,7 @@ class AugmentCreator(QMainWindow):
             )
 
 
+    # Removes the tag at the given position.
     def remove_tag(self, index):
 
         if index < 0:
@@ -1303,10 +2201,7 @@ class AugmentCreator(QMainWindow):
         self.update_preview()
 
 
-    # ========================================================
-    # RICH TEXT
-    # ========================================================
-
+    # Toggles bold on the selected description text.
     def toggle_bold(self):
 
         cursor = self.description_edit.textCursor()
@@ -1344,6 +2239,7 @@ class AugmentCreator(QMainWindow):
         self.update_preview()
 
 
+    # Sets italic on the selected text to match the italic button.
     def toggle_italic(self):
 
         cursor = (
@@ -1371,6 +2267,8 @@ class AugmentCreator(QMainWindow):
         self.update_preview()
 
 
+    # Colors the selected text with a color picked from a dialog, then saves
+    # the dialog's custom colors so they persist between runs.
     def change_text_color(self):
 
         cursor = (
@@ -1409,10 +2307,7 @@ class AugmentCreator(QMainWindow):
         self.update_preview()
 
 
-    # ========================================================
-    # STAT ICONS
-    # ========================================================
-
+    # Builds the "Stat Icons" dropdown menu, one entry per STAT_ICONS item.
     def build_stat_icon_menu(
         self,
         button
@@ -1444,6 +2339,8 @@ class AugmentCreator(QMainWindow):
         return menu
 
 
+    # Inserts a stat icon as an inline image at the cursor, sized to the
+    # icon's configured height while keeping its aspect ratio.
     def insert_stat_icon(
         self,
         icon_path
@@ -1458,7 +2355,16 @@ class AugmentCreator(QMainWindow):
             return
 
         filename = os.path.basename(icon_path)
-        icon_size = STAT_ICON_CUSTOM_SIZES.get(filename, STAT_ICON_SIZE)
+        base_size = STAT_ICON_CUSTOM_SIZES.get(filename, STAT_ICON_SIZE)
+
+        reader = QImage(icon_path)
+        if not reader.isNull() and reader.height() > 0:
+            aspect_ratio = reader.width() / reader.height()
+            target_height = base_size
+            target_width = int(round(target_height * aspect_ratio))
+        else:
+            target_width = base_size
+            target_height = base_size
 
         cursor = (
             self.description_edit
@@ -1474,15 +2380,15 @@ class AugmentCreator(QMainWindow):
         )
 
         image_format.setWidth(
-            icon_size
+            target_width
         )
 
         image_format.setHeight(
-            icon_size
+            target_height
         )
 
-        # Apply centering only to critical strike
-        if filename == "critical_strike.png":
+        # These icons sit better centered on the text line.
+        if filename in ["critical_strike.png", "on_hit.png"]:
             image_format.setVerticalAlignment(
                 QTextImageFormat.AlignMiddle
             )
@@ -1500,10 +2406,8 @@ class AugmentCreator(QMainWindow):
         self.update_preview()
 
 
-    # ========================================================
-    # REGISTER STAT ICONS
-    # ========================================================
-
+    # Pre-loads every local image in the HTML into the render document,
+    # trimming transparent borders so icons line up with the text.
     def register_stat_icons_in_document(
         self,
         document,
@@ -1539,16 +2443,15 @@ class AugmentCreator(QMainWindow):
             if image.isNull():
                 continue
 
-            # Convert to ARGB32 to inspect the alpha channel
             image = image.convertToFormat(QImage.Format_ARGB32)
 
-            # Auto-crop transparent borders
+            # Find the bounding box of pixels that aren't (nearly) transparent.
             min_x, min_y = image.width(), image.height()
             max_x, max_y = -1, -1
 
             for y in range(image.height()):
                 for x in range(image.width()):
-                    if (image.pixel(x, y) >> 24) & 0xFF > 15:  # non-transparent pixel
+                    if (image.pixel(x, y) >> 24) & 0xFF > 15:
                         min_x = min(min_x, x)
                         max_x = max(max_x, x)
                         min_y = min(min_y, y)
@@ -1563,10 +2466,10 @@ class AugmentCreator(QMainWindow):
                 image
             )
 
-    # ========================================================
-    # FIND ICON
-    # ========================================================
 
+    # Finds the augment's icon file. Tries, in order: the path as given, the
+    # file in assets/icons, the filename anywhere under assets/icons, then
+    # any icon file containing the augment's id or name.
     def find_icon(self):
 
         if not self.current_augment:
@@ -1668,10 +2571,8 @@ class AugmentCreator(QMainWindow):
         return None
 
 
-    # ========================================================
-    # FIND BACKGROUND
-    # ========================================================
-
+    # Picks the card background from the augment's rarity
+    # (2/prismatic, 1/gold, anything else silver).
     def find_background(self):
 
         rarity = self.current_augment.get(
@@ -1721,10 +2622,8 @@ class AugmentCreator(QMainWindow):
         return None
 
 
-    # ========================================================
-    # DRAW TAG BOXES
-    # ========================================================
-
+    # Draws the tag pills centered in the tag row: shadow, horizontal
+    # gradient fill, then the text. "Quest" tags use the gold colors.
     def draw_tag_boxes(
         self,
         painter
@@ -1757,6 +2656,7 @@ class AugmentCreator(QMainWindow):
             tags_font
         )
 
+        # Measure each tag so the whole row can be centered.
         tag_widths = []
 
         for tag in self.tags:
@@ -1828,9 +2728,6 @@ class AugmentCreator(QMainWindow):
 
                     is_quest = str(tag).strip().lower() == "quest"
 
-                    # ------------------------------------------------
-                    # Shadow
-                    # ------------------------------------------------
 
                     if (
                         TAG_SHADOW_OFFSET_X != 0
@@ -1864,9 +2761,6 @@ class AugmentCreator(QMainWindow):
                             TAG_BOX_RADIUS
                         )
 
-                    # ------------------------------------------------
-                    # Box
-                    # ------------------------------------------------
 
                     edge_color = TAG_QUEST_BOX_COLOR_EDGE if is_quest else TAG_BOX_COLOR_EDGE
                     center_color = TAG_QUEST_BOX_COLOR_CENTER if is_quest else TAG_BOX_COLOR_CENTER
@@ -1915,9 +2809,6 @@ class AugmentCreator(QMainWindow):
                         TAG_BOX_RADIUS
                     )
 
-                    # ------------------------------------------------
-                    # Text
-                    # ------------------------------------------------
 
                     painter.setFont(
                         tags_font
@@ -1949,10 +2840,7 @@ class AugmentCreator(QMainWindow):
                     )
 
 
-    # ========================================================
-    # DEBUG BOUNDS
-    # ========================================================
-
+    # Outlines the icon, title, tag and description areas when DEBUG_BOUNDS is on.
     def draw_debug_bounds(
         self,
         painter
@@ -1969,10 +2857,6 @@ class AugmentCreator(QMainWindow):
             2
         )
 
-
-        # ----------------------------------------------------
-        # ICON
-        # ----------------------------------------------------
 
         pen.setColor(
             QColor("#00FFFF")
@@ -1994,10 +2878,6 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ----------------------------------------------------
-        # TITLE
-        # ----------------------------------------------------
-
         pen.setColor(
             QColor("#00FF00")
         )
@@ -2014,10 +2894,6 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ----------------------------------------------------
-        # TAG AREA
-        # ----------------------------------------------------
-
         pen.setColor(
             QColor("#FFFF00")
         )
@@ -2033,10 +2909,6 @@ class AugmentCreator(QMainWindow):
             TAG_AREA_HEIGHT
         )
 
-
-        # ----------------------------------------------------
-        # DESCRIPTION
-        # ----------------------------------------------------
 
         pen.setColor(
             QColor("#FF0000")
@@ -2056,20 +2928,15 @@ class AugmentCreator(QMainWindow):
         painter.restore()
 
 
-    # ========================================================
-    # DRAW CARD
-    # ========================================================
-
+    # Renders the full card as a QImage: background, icon, ability overlay,
+    # title, tags and description, in that order.
     def render_card(self):
 
         if not self.current_augment:
             return None
 
 
-        # ----------------------------------------------------
-        # BASE IMAGE
-        # ----------------------------------------------------
-
+        # Background for the augment's rarity, or plain dark if it's missing.
         background_path = (
             self.find_background()
         )
@@ -2118,11 +2985,22 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # ICON
-        # ====================================================
-
+        # Augment icon, or the special ability frame when one applies,
+        # centered in the icon box.
         icon_path = self.find_icon()
+
+        icon_size = ICON_SIZE
+
+        frame_path = self.find_ability_frame()
+
+        if (
+            frame_path
+            and self.get_selected_ability()
+        ):
+
+            icon_path = frame_path
+
+            icon_size = ABILITY_FRAME_SIZE
 
         if icon_path:
 
@@ -2131,8 +3009,8 @@ class AugmentCreator(QMainWindow):
             )
 
             icon = icon.scaled(
-                ICON_SIZE,
-                ICON_SIZE,
+                icon_size,
+                icon_size,
                 Qt.KeepAspectRatio,
                 Qt.SmoothTransformation
             )
@@ -2160,10 +3038,12 @@ class AugmentCreator(QMainWindow):
             )
 
 
-        # ====================================================
-        # NAME
-        # ====================================================
+        self.draw_ability_overlay(
+            painter
+        )
 
+
+        # Title.
         name = self.name_edit.text()
 
         title_font_family = (
@@ -2210,22 +3090,20 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # TAG BOXES
-        # ====================================================
-
         self.draw_tag_boxes(
             painter
         )
 
 
-        # ====================================================
-        # DESCRIPTION
-        # ====================================================
-
+        # Description: the editor's HTML with the ability name filled in,
+        # drawn through a QTextDocument so formatting and icons are kept.
         description_html = (
             self.description_edit
             .toHtml()
+        )
+
+        description_html = self.fill_ability_name(
+            description_html
         )
 
         description_font_family = (
@@ -2254,10 +3132,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # DESCRIPTION ALIGNMENT
-        # ====================================================
-
+        # Force the configured alignment by adding text-align to <body>.
         alignment_css = "center"
 
         if DESCRIPTION_ALIGNMENT == Qt.AlignLeft:
@@ -2323,8 +3198,7 @@ class AugmentCreator(QMainWindow):
             )
 
 
-        # Remove the editor's generated font-family CSS so the
-        # card renderer can consistently use Beaufort Regular.
+        # Strip font-family from the editor HTML so the card font is always used.
         aligned_html = re.sub(
             r'font-family\s*:[^;"]+;?',
             '',
@@ -2333,10 +3207,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # FINAL DESCRIPTION DOCUMENT
-        # ====================================================
-
+        # Lay the description out at the card's text width.
         document = QTextDocument()
 
         document.setDocumentMargin(
@@ -2347,7 +3218,6 @@ class AugmentCreator(QMainWindow):
             default_font
         )
 
-        # Register local stat icon images before loading the HTML.
         self.register_stat_icons_in_document(
             document,
             aligned_html
@@ -2362,10 +3232,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-        # ====================================================
-        # DRAW DESCRIPTION
-        # ====================================================
-
+        # Draw it inside the description box.
         description_rect = QRectF(
             DESCRIPTION_X,
             DESCRIPTION_Y,
@@ -2393,28 +3260,17 @@ class AugmentCreator(QMainWindow):
         painter.restore()
 
 
-        # ====================================================
-        # DEBUG BOUNDS
-        # ====================================================
-
         self.draw_debug_bounds(
             painter
         )
 
-
-        # ====================================================
-        # FINISH
-        # ====================================================
 
         painter.end()
 
         return base
 
 
-    # ========================================================
-    # UPDATE PREVIEW
-    # ========================================================
-
+    # Re-renders the card and scales it to fit the preview panel.
     def update_preview(self):
 
         if not self.current_augment:
@@ -2429,10 +3285,6 @@ class AugmentCreator(QMainWindow):
             image
         )
 
-
-        # ----------------------------------------------------
-        # Fit card to preview panel
-        # ----------------------------------------------------
 
         available_width = (
             self.preview.width() - 20
@@ -2461,10 +3313,8 @@ class AugmentCreator(QMainWindow):
         )
 
 
-    # ========================================================
-    # EXPORT
-    # ========================================================
-
+    # Renders the card and saves it as a PNG through a Save As dialog, defaulting
+    # to "Augment Cards/<name>.png" with unsafe filename characters removed.
     def export_card(self):
 
         if not self.current_augment:
@@ -2509,7 +3359,6 @@ class AugmentCreator(QMainWindow):
             f"{safe_name}.png"
         )
 
-        # Open the Save As dialog
         file_path, _ = QFileDialog.getSaveFileName(
             self,
             "Save Augment Card",
@@ -2517,7 +3366,6 @@ class AugmentCreator(QMainWindow):
             "PNG Images (*.png)"
         )
 
-        # If the user clicks Cancel, file_path will be empty
         if not file_path:
             return
 
@@ -2531,10 +3379,7 @@ class AugmentCreator(QMainWindow):
         )
 
 
-# ============================================================
-# START
-# ============================================================
-
+# Starts the Qt app and shows the main window.
 def main():
 
     app = QApplication(
